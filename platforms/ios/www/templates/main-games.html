@@ -1,11 +1,7 @@
-<ion-view view-title="Games" np-controller="gamesController">
+<ion-view view-title="Games" ng-controller="gamesController">
   <ion-content class="padding">
-    <p>
-      {{games}}
-    </p>
     <ul class="list">
-      <li ng-repeat="game in games" class="item">{{game.id}}, {{game.address}}</li>
-      <li ng-hide="!games.length" class="item">no games persisted yet</li>
+      <li ng-repeat="game in games" class="item">{{game._id}}, {{game.adress}}</li>
     </ul>
   </ion-content>
 </ion-view>

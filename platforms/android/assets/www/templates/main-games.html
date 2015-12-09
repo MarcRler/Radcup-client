@@ -1,7 +1,7 @@
-<ion-view view-title="Games">
+<ion-view view-title="Games" ng-controller="gamesController">
   <ion-content class="padding">
-    <p>
-      Ich bin der Games Tab
-    </p>
+    <ul class="list">
+      <li ng-repeat="game in games" class="item">{{game._id}}, {{game.adress}}</li>
+    </ul>
   </ion-content>
 </ion-view>
