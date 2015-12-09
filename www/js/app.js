@@ -66,16 +66,10 @@ angular.module('radcup', ['ionic', 'ngCordova'])
       templateUrl: 'templates/new_game.html'
     })
     .state('map', {
-        url: '/map',
-        controller: 'mapController',
-        template: '<div id="map"></div>',
-        resolve: {
-          'location': function(locationService) {
-            return locationService.promise;
-          }
-        }
+      url: '/map',
+      templateUrl: 'templates/map.html'
     });
 
-// if none of the above states are matched, use this as the fallback
-$urlRouterProvider.otherwise('/');
+  // if none of the above states are matched, use this as the fallback
+  $urlRouterProvider.otherwise('/');
 });
