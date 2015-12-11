@@ -14,7 +14,7 @@ angular.module('radcup').controller('loginController', function($scope, $http, $
               'Content-Type': 'application/x-www-form-urlencoded'
             }
             })
-
+//TODO: .success soll nicht mehr genutzt werden mit 1.5! -> then nutzen! Error Handling 401 einbauen! 
     .success(function(data) {
       if (data.error) {
         // Showing errors.
