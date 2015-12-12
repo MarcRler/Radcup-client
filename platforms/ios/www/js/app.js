@@ -36,6 +36,10 @@ angular.module('radcup', ['ionic'])
       url: '/login',
       templateUrl: 'templates/login.html'
     })
+    .state('loginSuccess', {
+      url: '/loginSuccess',
+      templateUrl: 'templates/loginSuccess.html'
+    })
     .state('register', {
       url: '/register',
       templateUrl: 'templates/register.html'
