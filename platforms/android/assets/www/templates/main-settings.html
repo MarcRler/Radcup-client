@@ -1,7 +1,26 @@
-<ion-view view-title="Settings">
+<ion-view view-title="Settings" ng-controller="settingController">
+
   <ion-content class="padding">
-    <p>
-      Ich bin der Settings Tab
-    </p>
+    <div class="row responsive-sm">
+      <div class="col">Update your credentials:</div>
+    </div>
+    <div class="list">
+  <label class="item item-input item-floating-label">
+    <span class="input-label">new username</span>
+    <input type="text" ng-model="settings.username" placeholder="Old username:{{$rootScope.username}}">
+  </label>
+  <label class="item item-input item-floating-label">
+    <span class="input-label">new email</span>
+    <input type="text" ng-model="settings.email" placeholder="Old email:{{$rootScope.email}}">
+  </label>
+  <label class="item item-input item-floating-label">
+    <span class="input-label">new password</span>
+    <input type="text" ng-model="settings.password" placeholder="Old password (hash): {{$rootScope.password}}">
+  </label>
+  <button class="button button-block button-positive" ng-click="updateSettingForm()">
+  Update!
+</button>
+</label>
+</div>
   </ion-content>
 </ion-view>

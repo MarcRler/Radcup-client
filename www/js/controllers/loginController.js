@@ -26,7 +26,14 @@ angular.module('radcup').controller('loginController', function($scope, $rootSco
                   }
                   $location.path("/main");
           }, function errorCallback(response){
-              alert(response);
+              if(response.status===401 || response.data==='Unauthorized'){
+                console.log("Information from Backend:Unauthorized - Please use valid credentials!")
+
+              } else {
+                alert('unknown error occured')
+              }
+
+
           });
         };
 
