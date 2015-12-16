@@ -22,3 +22,8 @@
   left: 50%;
   top: 50%
 }
+
+.buttonOnBottom{
+  position: fixed;
+  bottom: 20px;
+}

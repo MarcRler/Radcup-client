@@ -22,3 +22,7 @@
   left: 50%;
   top: 50%
 }
+
+.buttonOnBottom{
+  bottom: 70px;
+}

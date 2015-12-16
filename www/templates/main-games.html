@@ -4,7 +4,11 @@
       New Game
     </button>
     <ul class="list">
-      <li ng-repeat="game in games" class="item">{{game._id}}, {{game.adress}}</li>
+      <div ng-repeat="game in games">
+        <li class="item">{{game._id}}</li>
+        <li class="item">{{game.address}}</li>
+        <li class="item">{{game.lat}} - {{game.lng}}</li>
+      </div>
     </ul>
   </ion-content>
 </ion-view>
