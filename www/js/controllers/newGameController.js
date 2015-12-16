@@ -1,4 +1,4 @@
-angular.module('radcup').controller('newGameController', function($scope, $http, $httpParamSerializerJQLike, newGameService) {
+angular.module('radcup').controller('newGameController', function($scope, $http, $httpParamSerializerJQLike, gamesService) {
 
   $scope.game = {};
 
@@ -13,6 +13,6 @@ angular.module('radcup').controller('newGameController', function($scope, $http,
       lng: null
     }
     console.log(newGame);
-    newGameService.setGame(newGame);
+    gamesService.setGame(newGame);
   }
 });

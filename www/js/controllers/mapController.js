@@ -1,4 +1,4 @@
-angular.module('radcup').controller('mapController', function($scope, locationService, $location, newGameService) {
+angular.module('radcup').controller('mapController', function($scope, locationService, $location, gamesService) {
 
   var button = document.getElementById('asdf');
   button.style.visibility = 'hidden';
@@ -61,7 +61,7 @@ angular.module('radcup').controller('mapController', function($scope, locationSe
 
   $scope.createGame = function() {
 
-    newGameService.createNewGame(chosenPosition).then(function() {
+    gamesService.createNewGame(chosenPosition).then(function() {
 
       alert("success");
       $location.path("/main");

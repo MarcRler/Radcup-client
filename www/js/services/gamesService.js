@@ -1,4 +1,4 @@
-angular.module('radcup').service('newGameService', function($q, $http, $httpParamSerializerJQLike) {
+angular.module('radcup').service('gamesService', function($q, $http, $httpParamSerializerJQLike) {
 
   var newGame = null;
 
