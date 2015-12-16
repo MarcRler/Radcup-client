@@ -1,6 +1,6 @@
 <ion-view view-title="Register" ng-controller="registerController">
   <ion-content class="padding">
-   <form class="list" name="registerForm" ng-submit="submitForm()">
+   <form class="list" name="registerForm" ng-submit="register()">
      <label class="item item-input">
        <span class="input-label" >Username</span>
        <input type="text" ng-model="user.username">
@@ -16,6 +16,6 @@
      </label>
      <button type="submit" class="button button-block button-positive">Submit</button>
    </form>
- 
+
   </ion-content>
 </ion-view>
