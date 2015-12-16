@@ -36,10 +36,8 @@ angular.module('radcup').service('userService', function($q, $http, $httpParamSe
        $http({
            method: 'POST',
            url: host,
-           data:$httpParamSerializerJQLike(user),
-           headers:  {
-           'Content-Type': 'application/x-www-form-urlencoded'
-           }
+           data:user
+
            }).then(
            function(data) {
              console.log("erfolg --> PROBLEM IM BACKEND immer 200 RES");
