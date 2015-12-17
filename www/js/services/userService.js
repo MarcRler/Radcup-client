@@ -40,7 +40,6 @@ angular.module('radcup').service('userService', function($q, $http, $httpParamSe
 
            }).then(
            function(data) {
-             console.log("erfolg --> PROBLEM IM BACKEND immer 200 RES");
              resolve(data);
             },
             function(error) {
@@ -68,11 +67,64 @@ angular.module('radcup').service('userService', function($q, $http, $httpParamSe
   };
 
   this.logout = function(){
+    //delete auth header!
    delete $http.defaults.headers.common['Authorization'];
+   console.log($http.defaults.headers.common['Authorization']);
+   //delete locale credentials
+   delete window.localStorage['email'];
+   delete window.localStorage['password'];
+   delete window.localStorage['username'];
+   delete window.localStorage['userid'];
    return true;
   }
 
+  this.update = function(settings){
+    console.log(settings);
+    $http.defaults.headers.post["Content-Type"] = "application/json";
+  return $q(function(resolve, reject){
+    var uemail=''; //updated email
+    var uuname=''; //updated username
+    var upassword=''; //updated password
+    /*prüfe ob credentials im lokal storage dem entsprechen was mit geliefert wurde oder leer war,
+    wenn ja gibt es nichts zum updaten und nutze die informationen aus dem local storage für PUT - es wird also mit bereits bekannten daten geupdated  */
+     if(settings.email===window.localStorage['email'] || settings.email===undefined){
+       uemail=window.localStorage['email'];
+     } else {
+       uemail=settings.email;
+     }
+     if(settings.username===window.localStorage['username'] || settings.username===undefined){
+       uuname=window.localStorage['username'];
+     } else {
+       uuname=settings.username;
+     }
+     if(settings.password===window.localStorage['password'] || settings.password===undefined){
+       upassword=window.localStorage['password'];
+     } else {
+       upassword=settings.password;
+     }
 
-   }
+    console.log('new username: '+uuname);
+    console.log('new email: '+uemail);
+    console.log('new password: '+upassword);
+    //Json zusammen bauen von Hand -> ist evtl. nicht besonders gut. sollte mit einer funktion gemacht werden!
+    var jsonData = '{"username":'+'"'+uuname+'","password":'+'"'+upassword+'","email":"'+uemail+'"}';
+    console.log(jsonData);
+    console.log($http.defaults.headers.common.Authorization);
+    $http({
+      method: 'PUT',
+      url: host+window.localStorage['userid'],
+      data: jsonData})
+      .then(function (data) {
+                    console.log("User updated: ");
+                    resolve(data)
+          }, function (error){
+                  console.log('error');
+                  reject(error);
+            });
+          });
 
-);
+  }
+
+
+
+});

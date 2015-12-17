@@ -44,10 +44,6 @@ angular.module('radcup', ['ionic', 'ngCordova'])
       url: '/register',
       templateUrl: 'templates/register.html'
     })
-    .state('register_succes', {
-      url: '/register_succes',
-      templateUrl: 'templates/register_succes.html'
-    })
     .state('main', {
       url: '/main',
       // abstract: true,
