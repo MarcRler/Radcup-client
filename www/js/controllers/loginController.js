@@ -1,4 +1,4 @@
-angular.module('radcup').controller('loginController', function ($scope, userService, $location){
+angular.module('radcup').controller('loginController', function ($scope, userService, $location,$state){
 $scope.login = {};
     $scope.submitLoginForm = function() {
         userService.login($scope.login).then(function (data) {
@@ -8,7 +8,7 @@ $scope.login = {};
           console.log('test: '+name);
           console.log('call the httpheader settaaaa boi');
           if (userService.setUserHeader())
-          $location.path('/main');
+          $state.go('main.games');
                 }, function (error) {
                   if(error.status===401 || error.data==='Unauthorized'){
                     console.log("Information from Backend:Unauthorized - Please use valid credentials!")

@@ -1,8 +1,5 @@
 <ion-view view-title="Games" ng-controller="gamesController">
-  <ion-content class="padding">
-    <button class="button button-block button-positive" ui-sref="new_game">
-      New Game
-    </button>
+  <ion-content>
     <ul class="list">
       <div ng-repeat="game in games">
         <li class="item">{{game._id}}</li>
