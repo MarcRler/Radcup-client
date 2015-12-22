@@ -1,4 +1,4 @@
-langular.module('radcup').service('userService', function($q, $http, $httpParamSerializerJQLike){
+angular.module('radcup').service('userService', function($q, $http, $httpParamSerializerJQLike){
   var host = 'http://localhost:3000/api/users/';
 
  this.login =function(login){

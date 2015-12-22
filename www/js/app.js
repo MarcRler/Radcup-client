@@ -65,6 +65,14 @@ angular.module('radcup', ['ionic', 'ngCordova'])
         }
       }
     })
+    .state('main.myGames', {
+      url: '/myGames',
+      views: {
+        'main-myGames': {
+          templateUrl: 'templates/myGames.html'
+        }
+      }
+    })
     .state('new_game', {
       url: '/newGame',
       templateUrl: 'templates/new_game.html'
