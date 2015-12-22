@@ -6,7 +6,7 @@ angular.module('radcup').service('userService', function($q, $http, $httpParamSe
     return $q(function(resolve, reject){
       $http({
           method: 'GET',
-          url: 'http://localhost:3000/api/user/',
+          url: host+login.email,
           headers:  {
           'Authorization' : 'Basic '+ btoa(login.email+':'+login.password),
           'Content-Type': 'application/x-www-form-urlencoded'
