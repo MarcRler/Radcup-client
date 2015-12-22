@@ -3,12 +3,20 @@
     <a class="button button-block button-positive" href="#/newGame">
       New Game
     </a>
-    <ul class="list">
-      <div ng-repeat="game in games">
-        <li class="item">{{game._id}}</li>
-        <li class="item">{{game.address}}</li>
-        <li class="item">{{game.lat}} - {{game.lng}}</li>
+    <div class="card gamecards" ng-repeat="game in games">
+      <div class="item item-text-wrap">
+        <div class="item">
+          <span>{{ game.host }} ⋅ {{ game.teamRed.playerTwo }}</span>
+          <hr>
+          <p>vs</p>
+          <hr>
+          <span>{{ game.teamBlue.playerOne }} ⋅ {{ game.teamBlue.playerTwo }}</span>
+        </div>
       </div>
+      <div class="item item-divider">
+        {{ game.desc }}
+      </div>
+    </div>
     </ul>
   </ion-content>
 </ion-view>

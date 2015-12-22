@@ -1,4 +1,4 @@
-angular.module('radcup').controller('loginController', function ($scope, userService, $location,$state){
+angular.module('radcup').controller('loginController', function ($scope, userService, $location, $state){
 $scope.login = {};
     $scope.submitLoginForm = function() {
         userService.login($scope.login).then(function (data) {

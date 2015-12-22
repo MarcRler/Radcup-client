@@ -1,4 +1,4 @@
-angular.module('radcup').service('userService', function($q, $http, $httpParamSerializerJQLike){
+langular.module('radcup').service('userService', function($q, $http, $httpParamSerializerJQLike){
   var host = 'http://localhost:3000/api/users/';
 
  this.login =function(login){
@@ -6,7 +6,7 @@ angular.module('radcup').service('userService', function($q, $http, $httpParamSe
     return $q(function(resolve, reject){
       $http({
           method: 'GET',
-          url: host + login.email,
+          url: 'http://localhost:3000/api/user/',
           headers:  {
           'Authorization' : 'Basic '+ btoa(login.email+':'+login.password),
           'Content-Type': 'application/x-www-form-urlencoded'

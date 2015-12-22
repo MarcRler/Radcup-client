@@ -1,7 +1,9 @@
-angular.module('radcup').controller('gamesController', function($scope, $http) {
+angular.module('radcup').controller('myGamesController', function($scope, $http, userService) {
+
+
 
   $scope.$on('$ionicView.enter', function() {
-    $http.get('http://localhost:3000/api/joinableGames').
+    $http.get('http://localhost:3000/api/myGames').
     success(function(data) {
       $scope.games = data;
 
