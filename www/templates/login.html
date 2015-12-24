@@ -1,16 +1,24 @@
 <ion-view view-title="Login" ng-controller="loginController">
   <ion-content class="padding">
+    <p class="error" ng-model="user.error" type=text> {{login.error}}</p>
+    <form class="list" name="registerForm" ng-submit="submitLoginForm()" novalidate>
 
-    <form class="list" name="registerForm" ng-submit="submitLoginForm()">
-      <label class="item item-input">
+    <label class="item item-input">
         <span class="input-label" >E-Mail</span>
-        <input type="text" ng-model="login.email">
+        <input type="email" name="email" ng-model="login.email" ng-minlength="5" required>
       </label>
       <label class="item item-input">
         <span class="input-label" >Password</span>
-        <input type="text" ng-model="login.password">
+        <input type="password" name="password" ng-model="login.password"  ng-minlength="6" required>
       </label>
-      <button type="submit" class="button button-block button-positive">Submit</button>
+      <button type="submit" ng-disabled="registerForm.$invalid" class="button button-block button-positive">Submit</button>
+      <div class="padding">
+                 <p ng-show="registerForm.email.$error.required">* Email is required</p>
+                 <p ng-show="registerForm.email.$invalid && !registerForm.email.$pristine">* Username must be an email address</p>
+                 <p ng-show="registerForm.email.$error.minlength">* Email must be longer than 5 characters</p>
+                 <p ng-show="registerForm.password.$error.required">* Password is required</p>
+                 <p ng-show="registerForm.password.$error.minlength">* Password must be longer than 6 characters</p>
+             </div>
     </form>
 
   </ion-content>
