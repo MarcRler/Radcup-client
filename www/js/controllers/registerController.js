@@ -12,7 +12,12 @@ angular.module('radcup').controller('registerController', function($scope, userS
           $state.go('login');
         },
         function(error) {
-          $scope.user.error = error.data.error;
+          if(error.data.error==='Duplicate validation error'){
+            $scope.user.error ='This credentials already in use!'
+          } else {
+            $scope.user.error=error.data.error;
+          }
+           
         });
   };
 });

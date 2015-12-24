@@ -9,16 +9,16 @@
       </label>
       <label class="item item-input">
         <span class="input-label" >Password</span>
-        <input type="password" name="password" ng-model="login.password"  ng-minlength="6" required>
+        <input type="password" name="password" ng-model="login.password"  ng-minlength="3" required>
       </label>
       <button type="submit" ng-disabled="registerForm.$invalid" class="button button-block button-positive">Submit</button>
       <div class="padding">
                  <p ng-show="registerForm.email.$error.required">* Email is required</p>
-                 <p ng-show="registerForm.email.$invalid && !registerForm.email.$pristine">* Username must be an email address</p>
+                 <p ng-show="registerForm.email.$invalid && !registerForm.email.$pristine">* Emailfield must be an email address</p>
                  <p ng-show="registerForm.email.$error.minlength">* Email must be longer than 5 characters</p>
                  <p ng-show="registerForm.password.$error.required">* Password is required</p>
-                 <p ng-show="registerForm.password.$error.minlength">* Password must be longer than 6 characters</p>
-             </div>
+                 <p ng-show="registerForm.password.$error.minlength">* Password must be longer than 3 characters</p>
+     </div>
     </form>
 
   </ion-content>
