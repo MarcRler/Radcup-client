@@ -28,4 +28,16 @@ angular.module('radcup').service('gamesService', function($q, $http, $httpParamS
         });
     });
   };
+
+  this.getGames = function(url) {
+    return $q(function(resolve, reject){
+      $http.get(url)
+      .then(function(data){
+        resolve(data);
+      },
+      function(error){
+        reject();
+      });
+    });
+  };
 });

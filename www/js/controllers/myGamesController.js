@@ -1,14 +1,11 @@
-angular.module('radcup').controller('myGamesController', function($scope, $http, userService) {
-
-
+angular.module('radcup').controller('myGamesController', function($scope, $http, gamesService) {
 
   $scope.$on('$ionicView.enter', function() {
-    $http.get('http://localhost:3000/api/myGames').
-    success(function(data) {
-      $scope.games = data;
-
-    }).error(function(data, status) {
-      console.log(data, status);
+    gamesService.getGames('http://localhost:3000/api/myGames').then(function(resolve){
+      $scope.games = resolve.data;    
+    },
+    function(reject){
+      $scope.games = reject;
     });
   });
 });
