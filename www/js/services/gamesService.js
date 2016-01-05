@@ -1,5 +1,18 @@
-angular.module('radcup').service('gamesService', function($q, $http, $httpParamSerializerJQLike) {
+angular.module('radcup').service('gamesService', function($q, $http, $httpParamSerializerJQLike, $resource) {
 
+  this.allGames = function () {
+    return $resource('http://localhost:3000/api/games/:id', { id: '@_id' }, {
+      update: {
+        method: 'PUT'
+      }
+    });
+  };
+  this.joinableGames = function () {
+    return $resource('http://localhost:3000/api/joinableGames');
+  };
+  this.joinedGames = function() {
+    return $resource('http://localhost:3000/api/myGames');
+  };
   var newGame = null;
 
   this.setGame = function(game) {
@@ -26,18 +39,6 @@ angular.module('radcup').service('gamesService', function($q, $http, $httpParamS
         function(error) {
           reject();
         });
-    });
-  };
-
-  this.getGames = function(url) {
-    return $q(function(resolve, reject){
-      $http.get(url)
-      .then(function(data){
-        resolve(data);
-      },
-      function(error){
-        reject();
-      });
     });
   };
 });

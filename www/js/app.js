@@ -3,7 +3,7 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('radcup', ['ionic', 'ngCordova'])
+angular.module('radcup', ['ionic', 'ngCordova' , 'ui.router', 'ngResource'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -80,6 +80,11 @@ angular.module('radcup', ['ionic', 'ngCordova'])
     .state('map', {
       url: '/map',
       templateUrl: 'templates/map.html'
+    })
+    .state('getGame', {
+      url: '/games/:id',
+      templateUrl: 'templates/game.html'
+      // controller: 'js/controllers/gameController'
     });
 
   // if none of the above states are matched, use this as the fallback

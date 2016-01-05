@@ -1,6 +1,6 @@
 .landingimage {
   padding: 10px;
-  height: 85%;
+  height: 90%;
   width: 100%
 }
 
@@ -32,7 +32,15 @@
  color: red;
 }
 
-.walkthrough{
-  width: 100%;
+.gamecards{
+  text-align: center;
+}
+
+.join-game{
+  background-color: #EF5350;
+}
+
+.join-game a{
   height: 100%;
+  width: 100%;
 }

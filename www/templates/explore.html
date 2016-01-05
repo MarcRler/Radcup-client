@@ -1,17 +1,22 @@
 <ion-view view-title="Games" ng-controller="exploreController">
   <ion-content>
     <div class="card gamecards" ng-repeat="game in games">
-      <div class="item item-text-wrap">
-        <div class="item">
-          <span>{{ game.host }} ⋅ {{ game.teamRed.playerTwo }}</span>
+      <div class="item item-text-wrap item-divider">
+        <div>
+          <span>{{ game.players.one }}</span>
+          ⋅
+          <span>{{ game.players.two }}</span>
           <hr>
           <p>vs</p>
           <hr>
-          <span>{{ game.teamBlue.playerOne }} ⋅ {{ game.teamBlue.playerTwo }}</span>
+          <span>{{ game.players.three }}</span>
+          ⋅
+          <span>{{ game.players.four }}</span>
         </div>
       </div>
-    <div class="item item-divider">
-      {{ game.desc }}
+      <div class="item item-text-wrap">
+        {{ game.desc }}
+      </div>
     </div>
   </ion-content>
 </ion-view>

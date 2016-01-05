@@ -1,0 +1,12 @@
+<ion-view view-title="Game" ng-controller="gameController">
+  <ion-content>
+    <div class='game-content'>
+      <div>{{ game.players.one }} ⋅ {{ game.players.two }}</div>
+      <hr>
+      <p>vs</p>
+      <hr>
+      <div>{{ game.players.three }} ⋅ {{ game.players.four }}</div>
+      <button class="button" ng-click="updateGame()">Join Game</button>
+    </div>
+  </ion-content>
+</ion-view>

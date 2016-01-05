@@ -36,17 +36,17 @@ angular.module('radcup', ['ionic', 'ngCordova'])
       url: '/login',
       templateUrl: 'templates/login.html'
     })
-    .state('loginSuccess', {
-      url: '/loginSuccess',
-      templateUrl: 'templates/loginSuccess.html'
-    })
     .state('register', {
       url: '/register',
       templateUrl: 'templates/register.html'
     })
+    .state('explore', {
+      url: '/explore',
+      templateUrl: 'templates/explore.html'
+    })
     .state('main', {
       url: '/main',
-      // abstract: true,
+      abstract: true,
       templateUrl: 'templates/main.html'
     })
     .state('main.games', {
@@ -62,6 +62,14 @@ angular.module('radcup', ['ionic', 'ngCordova'])
       views: {
         'main-settings': {
           templateUrl: 'templates/main-settings.html'
+        }
+      }
+    })
+    .state('main.myGames', {
+      url: '/myGames',
+      views: {
+        'main-myGames': {
+          templateUrl: 'templates/myGames.html'
         }
       }
     })
