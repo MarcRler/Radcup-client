@@ -1,4 +1,4 @@
-angular.module('radcup').controller('settingController', function($scope, userService, $location) {
+angular.module('radcup').controller('settingController', function($scope, userService, $window) {
 $scope.oldUsername=window.localStorage['username'];
 $scope.oldEmail=window.localStorage['email'];
 $scope.oldPassword=window.localStorage['password'];
@@ -7,9 +7,11 @@ $scope.oldPassword=window.localStorage['password'];
     userService.update($scope.settings)
     .then(
       function (data) {
-          alert("update successfull!");
+      //    alert("update successfull!");
           if(userService.logout()) {
-            $location.path('/login');
+          //  $window.location.path ='login';
+            $window.location = '#/login';
+            $window.location.reload();
           }
       },
       function (error) {
