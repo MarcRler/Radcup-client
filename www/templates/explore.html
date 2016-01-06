@@ -2,17 +2,15 @@
   <ion-content>
     <div class="card gamecards" ng-repeat="game in games">
       <div class="item item-text-wrap item-divider">
-        <div>
-          <span>{{ game.players.one }}</span>
-          ⋅
-          <span>{{ game.players.two }}</span>
-          <hr>
-          <p>vs</p>
-          <hr>
-          <span>{{ game.players.three }}</span>
-          ⋅
-          <span>{{ game.players.four }}</span>
-        </div>
+        <span>{{ game.players.one }}</span>
+        ⋅
+        <span>{{ game.players.two }}</span>
+        <hr>
+        <p>vs</p>
+        <hr>
+        <span>{{ game.players.three }}</span>
+        ⋅
+        <span>{{ game.players.four }}</span>
       </div>
       <div class="item item-text-wrap">
         {{ game.desc }}

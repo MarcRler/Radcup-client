@@ -122,18 +122,5 @@ angular.module('radcup').service('userService', function($q, $http, $resource, $
                   reject(error);
             });
           });
-
   }
-  // 
-  // this.getName = function (userId){
-  //   return $q(function(resolve, reject){
-  //     $http.get(host + 'username/' + userId).then(function(data) {
-  //       resolve(data);
-  //     },
-  //     function(error) {
-  //       console.log('error');
-  //       reject(error);
-  //     });
-  //   });
-  // };
 });

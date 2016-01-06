@@ -7,12 +7,6 @@ angular.module('radcup').service('gamesService', function($q, $http, $httpParamS
       }
     });
   };
-  this.updateGame = function() {
-    return $resource('http://localhost:3000/api/games/:id', { id: '@_id' },
-    {
-        'update': { method:'PUT' }
-    });
-  };
   this.joinableGames = function () {
     return $resource('http://localhost:3000/api/joinableGames');
   };

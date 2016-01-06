@@ -9,7 +9,7 @@
         <label class="item item-input">
           <input lass="input-label" type='text' ng-model='game.players.two' id='playerTwo' readonly></input>
         </label>
-        <button ng-click="join(2)">Play Here</button>
+        <button ng-if="game.players.two === 'freeSlot'" ng-click="join(2)">Play Here</button>
       </div>
       <hr>
       <p>vs</p>
@@ -17,12 +17,12 @@
       <label class="item item-input">
         <input lass="input-label" type='text' ng-model="game.players.three" id='playerThree' readonly></input>
       </label>
-      <button ng-click="join(3)">Play Here</button>
+      <button ng-if="game.players.three === 'freeSlot'" ng-click="join(3)">Play Here</button>
       ⋅
       <label class="item item-input">
         <input lass="input-label" type='text' ng-model='game.players.four' id='playerFour' readonly></input>
       </label>
-      <button ng-click="join(4)">Play Here</button>
+      <button ng-if="game.players.four === 'freeSlot'" ng-click="join(4)">Play Here</button>
       <br>
       <button class="button" ng-click="updateGame()">Join Game</button>
     </div>
