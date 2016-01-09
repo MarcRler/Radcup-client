@@ -8,11 +8,10 @@
       <div class="col">Update your credentials:</div>
     </div>
     <div class="list">
-  <label class="item item-input item-floating-label">
+<!-- Username soll nicht geupadted werden da dieser uniq ist. <label class="item item-input item-floating-label">
     <span class="input-label">new username: </span>
     <input type="text" name="username" ng-model="settings.username" placeholder="Old username: {{oldUsername}}" ng-minlength="5">
-
-  </label>
+  </label>-->
   <label class="item item-input item-floating-label">
     <span class="input-label">new email: </span>
     <input type="email" name="email" ng-model="settings.email" placeholder="Old email: {{oldEmail}}" ng-minlength="5" >
@@ -26,15 +25,10 @@
 </label>
 </div>
 <div class="padding">
-
-  <p ng-show="settingForm.username.$error.minlength">* username must be longer than 5 characters</p>
+<!--  <p ng-show="settingForm.username.$error.minlength">* username must be longer than 5 characters</p> -->
   <p ng-show="settingForm.email.$invalid && !settingForm.email.$pristine">* Emailfield must be an email address</p>
   <p ng-show="settingForm.email.$error.minlength">* Email must be longer than 5 characters</p>
   <p ng-show="settingForm.password.$error.minlength">* Password must be longer than 3 characters</p>
-
-
-
-
 </div>
   </ion-content>
 </ion-view>
