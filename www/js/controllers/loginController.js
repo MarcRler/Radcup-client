@@ -6,14 +6,13 @@ $scope.login = {};
           $scope.login.email=data;
           var name = window.localStorage['email'] ;
           console.log('test: '+name);
-          console.log('call the httpheader settaaaa boi');
+          console.log('call the httpheader set method');
           if (userService.setUserHeader())
           $state.go('main.games');
                 }, function (error) {
                   if(error.status===401 || error.data==='Unauthorized'){
                     console.log("Information from Backend:Unauthorized - Please use valid credentials!")
-                    $scope.login.email='Please use valid credentials!';
-                    $scope.login.password='Please use valid credentials!';
+                    $scope.login.error='Please use valid credentials!';
                   } else {
                     alert('unknown error occured')
                   }

@@ -1,6 +1,10 @@
 angular.module('radcup').service('userService', function($q, $http, $resource, $httpParamSerializerJQLike){
   var host = 'http://localhost:3000/api/users/';
-
+/*Login function, get auf einen bestehenden benutzer mit dessen email.
+Authorization basic mit email und password. Wenn dieser in Backend vorhanden ist
+und die verwendete email der email Adresse welche im Get zurück entspricht wird
+persistData function aufgerufen.
+*/
  this.login =function(login){
     console.log(login);
     return $q(function(resolve, reject){
@@ -8,12 +12,11 @@ angular.module('radcup').service('userService', function($q, $http, $resource, $
           method: 'GET',
           url: host+login.email,
           headers:  {
-          'Authorization' : 'Basic '+ btoa(login.email+':'+login.password),
-          'Content-Type': 'application/x-www-form-urlencoded'
+          'Authorization' : 'Basic '+ btoa(login.email+':'+login.password)
           }
           }).then(
           function(data) {
-            console.log("erfolg");
+            console.log("success");
            if(login.email === data.data.email) {
              this.persistData(data,login);
               resolve(data);
@@ -27,10 +30,11 @@ angular.module('radcup').service('userService', function($q, $http, $resource, $
            reject(error);
         });
      });
-
-
     }
 
+/*register function, wird genutzt um via POST einen neuen Benutzer zu regestieren
+Aus view werden die "user" data elemente hierfür genutzt.
+*/
   this.register =function(user){
      return $q(function(resolve, reject){
        $http({
@@ -49,6 +53,10 @@ angular.module('radcup').service('userService', function($q, $http, $resource, $
       });
      }
 
+/* Alle Daten welche beim login eingegeben wurden werden im lokalen Speicher abgelegt
+um diese für spätere Funktionalitäten und dem zusammensetzen des HTTP Authorization
+headers vorhanden zu sein. function wird von login function gerufen
+*/
   persistData = function(res,login){
     console.log('persistData');
     window.localStorage['email'] = login.email;
@@ -57,7 +65,10 @@ angular.module('radcup').service('userService', function($q, $http, $resource, $
     window.localStorage['userid']=res.data._id;
 
   };
-
+/* diese function dient dem zusammensetzen des HTTP Default Authorization header
+es werden die zuvor gespeicherten values "email" und password hierfür genutzt.
+Wenn es funktioniert hat wird ein True geliefert. 
+*/
   this.setUserHeader = function(){
     var email=window.localStorage['email'];
     var password=window.localStorage['password'];
@@ -83,7 +94,7 @@ angular.module('radcup').service('userService', function($q, $http, $resource, $
     $http.defaults.headers.post["Content-Type"] = "application/json";
   return $q(function(resolve, reject){
     var uemail=''; //updated email
-    var uuname=''; //updated username
+    var uuname=''; //updated username -> username ist uniq darf nicht mehr geupdated werden. wird in view nicht angeboten.
     var upassword=''; //updated password
     /*prüfe ob credentials im lokal storage dem entsprechen was mit geliefert wurde oder leer war,
     wenn ja gibt es nichts zum updaten und nutze die informationen aus dem local storage für PUT - es wird also mit bereits bekannten daten geupdated  */
@@ -106,7 +117,6 @@ angular.module('radcup').service('userService', function($q, $http, $resource, $
     console.log('new username: '+uuname);
     console.log('new email: '+uemail);
     console.log('new password: '+upassword);
-    //Json zusammen bauen von Hand -> ist evtl. nicht besonders gut. sollte mit einer funktion gemacht werden!
     var jsonData = '{"username":'+'"'+uuname+'","password":'+'"'+upassword+'","email":"'+uemail+'"}';
     console.log(jsonData);
     console.log($http.defaults.headers.common.Authorization);
