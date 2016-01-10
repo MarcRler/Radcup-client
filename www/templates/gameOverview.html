@@ -1,9 +1,58 @@
 <ion-view view-title="Game" ng-controller="gameOverviewController">
   <ion-content>
-    <button  class="button button-block button-positive" style="display:none;" ng-click="updateGame(1)" id="start">
+    <p>
+      Info:
+    </p>
+    <div class="list">
+      <label class="item">
+        <p>{{game.desc}}</p>
+      </label>
+      <label class="item">
+        <p>{{time}}</p>
+      </label>
+      <label class="item">
+        <p>{{address}}</p>
+      </label>
+      <div class="item item-text-wrap">
+        <div class="item" ng-controller="gamesController">
+          <span>{{ game.players.one }}</span>
+          ⋅
+          <span>{{ game.players.two }}</span>
+          <hr>
+          <p>vs</p>
+          <hr>
+          <span>{{ game.players.three }}</span>
+          ⋅
+          <span>{{ game.players.four }}</span>
+        </div>
+      </div>
+    </div>
+    <p>
+      Results:
+    </p>
+    <div class="list">
+      <label class="item">
+        <span class="input-label">Winner</span>
+        <ion-radio ng-disabled="game.state!='started'||game.players.one!=user.username" ng-model="game.results.winner" ng-value="'Blue'">Choose Blue</ion-radio>
+        <ion-radio ng-disabled="game.state!='started'||game.players.one!=user.username" ng-model="game.results.winner" ng-value="'Red'">Coose Red</ion-radio>
+      </label>
+      <label class="item item-input">
+        <span class="input-label">Cups left</span>
+        <input type="number" ng-disabled="game.state!='started'||game.players.one!=user.username" ng-model="game.results.loserCupsLeft">
+      </label>
+      <label class="item">
+          <span class="input-label">StartTime</span>
+        <p>{{game.results.startTime}}</p>
+      </label>
+      <label class="item">
+          <span class="input-label">Endtime</span>
+        <p>{{game.results.endTime}}</p>
+      </label>
+    </div>
+    <button class="button button-block button-positive" ng-show="game.players.one===user.username&&game.state==='startable'" ng-click="updateGame(1)" id="start">
       Start Game
     </button>
-    <button  class="button button-block button-positive" style="display:none;" ng-click="updateGame(2)" id="finish">
+    <button class="button button-block button-positive" ng-show="game.players.one===user.username&&game.state==='started'" ng-click="updateGame(2)" id="finish">
       Finish Game
     </button>
   </ion-content>

@@ -7,8 +7,10 @@ angular.module('radcup').controller('newGameController', function($scope, $http,
   $scope.game = {};
 
   $scope.initializeGame = function() {
+
     var newGame = {
       desc: $scope.game.desc,
+      time: $scope.game.time,
       lat: null,
       lng: null
     }

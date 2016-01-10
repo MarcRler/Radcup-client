@@ -1,57 +1,91 @@
-angular.module('radcup').controller('gameOverviewController', function($scope, gamesService,$stateParams,$state) {
+angular.module('radcup').controller('gameOverviewController', function($scope, gamesService, $stateParams, $state) {
 
 
-  $scope.$on('$ionicView.beforeEnter', function (event, viewData) {
+  $scope.$on('$ionicView.beforeEnter', function(event, viewData) {
     viewData.enableBack = true;
   });
 
-  $scope.$on('$ionicView.enter', function () {
+  $scope.$on('$ionicView.enter', function() {
+    $scope.game = {};
+    $scope.game.results = {};
+    $scope.user = {};
+    $scope.user.username = window.localStorage.username;
     $scope.loadGame();
   });
 
 
-  $scope.loadGame = function () {
-    $scope.game = gamesService.allGames().get({ id: $stateParams.id });
+  $scope.loadGame = function() {
+    var game = gamesService.allGames().get({
+      id: $stateParams.id
+    });
 
-    $scope.game.$promise.then(function(data) {
+    game.$promise.then(function(data) {
 
-      if($scope.game.players.one===window.localStorage.username){
-        if($scope.game.state=='startable'){
-        setButtons(1);
-      }else if($scope.game.state=='started'){
-        setButtons(2);
-      }}
-   });
+      $scope.game = game;
+
+      setAddress();
+      setTimeForGame();
+
+    });
   };
 
-  $scope.updateGame = function (param) {
+  $scope.updateGame = function(param) {
 
-    if(param===1){
+    if (param === 1) {
       $scope.game.state = "started";
-      setButtons(2);
-    }else {
+      $scope.game.results.startTime = new Date();
+    } else {
       $scope.game.state = "finished";
+      $scope.game.results.endTime = new Date();
     }
 
     console.log($scope.game);
-    $scope.game.$update(function () {
-      if(param===2){$state.go('main.myGames');
+    console.log($scope.game.results);
+
+    $scope.game.$update(function() {
+      if (param === 2) {
+        $state.go('main.myGames');
       }
     });
   };
 
-  setButtons = function(param){
+  setAddress = function() {
 
-    switch (param) {
-      case 1:
-          document.getElementById('finish').style.display = 'none';
-          document.getElementById('start').style.display = 'block';
-        break;
-      case 2:
-          document.getElementById('finish').style.display = 'block';
-          document.getElementById('start').style.display = 'none';
-        break;
-    }
+    var geocoder = new google.maps.Geocoder();
+    var location = new google.maps.LatLng($scope.game.lat, $scope.game.lng);
+    geocoder.geocode({
+        'latLng': location
+      }, function(results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+          var add = results[0].formatted_address;
+          $scope.address = add;
+        }
+    });
   }
 
+  setTimeForGame = function(){
+
+    var date = new Date($scope.game.time);
+    var day = date.getDate();
+    var month = date.getMonth()+1;
+    var year = date.getFullYear();
+    var hours = date.getHours();
+    var hoursSize = hours.toString().length;
+    var minutes = date.getMinutes();
+    var minutesSize = minutes.toString().length;
+
+    if(hoursSize==1){
+      hours = 0+''+hours;
+    }
+
+    if(minutesSize==1){
+      minutes = 0+''+minutes;
+    }
+
+    var playDate = day+'.'+month+'.'+year+' '+hours+':'+minutes;
+
+    $scope.time = playDate;
+
+
+  }
 });
