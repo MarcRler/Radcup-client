@@ -84,7 +84,10 @@ angular.module('radcup', ['ionic', 'ngCordova' , 'ui.router', 'ngResource'])
     .state('getGame', {
       url: '/games/:id',
       templateUrl: 'templates/game.html'
-      // controller: 'js/controllers/gameController'
+    })
+    .state('gameOverview', {
+      url: '/games/:id',
+      templateUrl: 'templates/gameOverview.html'
     });
 
   // if none of the above states are matched, use this as the fallback
