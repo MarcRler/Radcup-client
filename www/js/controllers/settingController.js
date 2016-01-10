@@ -1,4 +1,6 @@
 angular.module('radcup').controller('settingController', function($scope, userService, $window) {
+/* settingsController dient als Bindeglied zwischen der main.settings view und
+der userService.update function. */
 $scope.oldUsername=window.localStorage['username'];
 $scope.oldEmail=window.localStorage['email'];
 $scope.oldPassword=window.localStorage['password'];
@@ -7,9 +9,7 @@ $scope.oldPassword=window.localStorage['password'];
     userService.update($scope.settings)
     .then(
       function (data) {
-      //    alert("update successfull!");
           if(userService.logout()) {
-          //  $window.location.path ='login';
             $window.location = '#/login';
             $window.location.reload();
           }

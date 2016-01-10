@@ -1,5 +1,4 @@
 angular.module('radcup').service('gamesService', function($q, $http, $httpParamSerializerJQLike, $resource) {
-
   this.allGames = function () {
     return $resource('http://localhost:3000/api/games/:id', { id: '@_id' }, {
       update: {
