@@ -1,6 +1,6 @@
 .landingimage {
   padding: 10px;
-  height: 85%;
+  height: 90%;
   width: 100%
 }
 
@@ -21,4 +21,33 @@
   position: fixed;
   left: 50%;
   top: 50%
+}
+
+.buttonOnBottom{
+  bottom: 70px;
+}
+
+.error {
+ font-size: 150%;
+ color: red;
+}
+
+.gamecards{
+  text-align: center;
+}
+
+.join-game{
+  padding: 0;
+  background-color: #EF5350;
+}
+
+.join-game a{
+  border: none;
+  height: 100%;
+  width: 100%;
+}
+
+.game-content{
+  text-align: center;
+  margin: auto;
 }

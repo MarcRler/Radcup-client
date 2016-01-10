@@ -3,9 +3,9 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('radcup', ['ionic', 'ngCordova'])
+angular.module('radcup', ['ionic', 'ngCordova' , 'ui.router', 'ngResource'])
 
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform, $ionicPopup) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -18,6 +18,20 @@ angular.module('radcup', ['ionic', 'ngCordova'])
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
+    if(window.Connection) {
+          if(navigator.connection.type == Connection.NONE) {
+            $ionicPopup.confirm({
+              title: 'No Internet Connection',
+              content: 'Sorry, no Internet connectivity detected. Please reconnect and try again.'
+            })
+            .then(function(result) {
+              if(!result) {
+                ionic.Platform.exitApp();
+              }
+            });
+          }
+        }
+
   });
 })
 
@@ -36,21 +50,17 @@ angular.module('radcup', ['ionic', 'ngCordova'])
       url: '/login',
       templateUrl: 'templates/login.html'
     })
-    .state('loginSuccess', {
-      url: '/loginSuccess',
-      templateUrl: 'templates/loginSuccess.html'
-    })
     .state('register', {
       url: '/register',
       templateUrl: 'templates/register.html'
     })
-    .state('register_succes', {
-      url: '/register_succes',
-      templateUrl: 'templates/register_succes.html'
+    .state('explore', {
+      url: '/explore',
+      templateUrl: 'templates/explore.html'
     })
     .state('main', {
       url: '/main',
-      // abstract: true,
+      abstract: true,
       templateUrl: 'templates/main.html'
     })
     .state('main.games', {
@@ -69,6 +79,14 @@ angular.module('radcup', ['ionic', 'ngCordova'])
         }
       }
     })
+    .state('main.myGames', {
+      url: '/myGames',
+      views: {
+        'main-myGames': {
+          templateUrl: 'templates/myGames.html'
+        }
+      }
+    })
     .state('new_game', {
       url: '/newGame',
       templateUrl: 'templates/new_game.html'
@@ -76,6 +94,11 @@ angular.module('radcup', ['ionic', 'ngCordova'])
     .state('map', {
       url: '/map',
       templateUrl: 'templates/map.html'
+    })
+    .state('getGame', {
+      url: '/games/:id',
+      templateUrl: 'templates/game.html'
+      // controller: 'js/controllers/gameController'
     });
 
   // if none of the above states are matched, use this as the fallback

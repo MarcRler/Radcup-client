@@ -1,16 +1,11 @@
 <ion-view view-title="New Game" ng-controller="newGameController">
   <ion-content class="padding">
-    <div class="list">
+    <div class="list" ng-init="init()">
       <label class="item item-input">
-        <span class="input-label">id</span>
-        <input type="text" ng-model="game._id">
-      </label>
-      <label class="item item-input">
-        <span class="input-label">Address</span>
-        <input type="text" ng-model="game.adress">
+        <span class="input-label">Description</span>
+        <input type="text" ng-model="game.desc">
       </label>
     </div>
-    <a class="button button-block button-positive" ui-sref="map">Start Map</a>
-    <a class="button button-block button-positive" ng-click="createGame()">Create Game</a>
-  </ion-content>
+    <a class="button button-block button-positive" ng-click="initializeGame()" href="#/map">Next</a>
+   </ion-content>
 </ion-view>

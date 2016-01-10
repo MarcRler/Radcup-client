@@ -1,5 +1,24 @@
 angular.module('radcup').service('userService', function($q, $http, $resource, $httpParamSerializerJQLike){
   var host = 'http://localhost:3000/api/users/';
+
+/*checkApi function, wird dazu genutzt um zu überprüfen ob das Backend auch läuft
+*/
+this.checkApi=function(login){
+  return $q(function(resolve,reject){
+    $http({
+      method: 'GET',
+      url: 'http://localhost:3000/api/'
+    }).then(
+      function(data){
+        console.log('success calling the api');
+        resolve(data);
+      },function(error){
+        console.log("error: "+error);
+        reject(error);
+      });
+  });
+}
+
 /*Login function, get auf einen bestehenden benutzer mit dessen email.
 Authorization basic mit email und password. Wenn dieser in Backend vorhanden ist
 und die verwendete email der email Adresse welche im Get zurück entspricht wird

@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 angular.module('radcup', ['ionic', 'ngCordova' , 'ui.router', 'ngResource'])
 
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform, $ionicPopup) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -18,6 +18,21 @@ angular.module('radcup', ['ionic', 'ngCordova' , 'ui.router', 'ngResource'])
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
+    //check cordova internet Connection of the devices!
+    if(window.Connection) {
+          if(navigator.connection.type == Connection.NONE) {
+            $ionicPopup.confirm({
+              title: 'No Internet Connection',
+              content: 'Sorry, no Internet connectivity detected. Please reconnect and try again.'
+            })
+            .then(function(result) {
+              if(!result) {
+                ionic.Platform.exitApp();
+              }
+            });
+          }
+        }
+
   });
 })
 

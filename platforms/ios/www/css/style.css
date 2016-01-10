@@ -37,10 +37,17 @@
 }
 
 .join-game{
+  padding: 0;
   background-color: #EF5350;
 }
 
 .join-game a{
+  border: none;
   height: 100%;
   width: 100%;
+}
+
+.game-content{
+  text-align: center;
+  margin: auto;
 }

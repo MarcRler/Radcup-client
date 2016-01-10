@@ -1,10 +1,28 @@
 <ion-view view-title="Games" ng-controller="gamesController">
   <ion-content class="padding">
-    <button class="button button-block button-positive" ui-sref="new_game">
+    <a class="button button-block button-positive" href="#/newGame">
       New Game
-    </button>
-    <ul class="list">
-      <li ng-repeat="game in games" class="item">{{game._id}}, {{game.adress}}</li>
-    </ul>
+    </a>
+    <div class="card gamecards" ng-repeat="game in games">
+      <div class="item item-text-wrap">
+        <div class="item">
+          <span>{{ game.players.one }}</span>
+          ⋅
+          <span>{{ game.players.two }}</span>
+          <hr>
+          <p>vs</p>
+          <hr>
+          <span>{{ game.players.three }}</span>
+          ⋅
+          <span>{{ game.players.four }}</span>
+        </div>
+      </div>
+      <div class="item item-divider">
+        {{ game.desc }}
+      </div>
+      <div class="join-game item">
+        <a ui-sref='getGame({id:game._id})' class="button button-outline button-light ion-chevron-right"></a>
+      </div>
+    </div>
   </ion-content>
 </ion-view>

@@ -6,20 +6,23 @@
     <div class="card gamecards" ng-repeat="game in games">
       <div class="item item-text-wrap">
         <div class="item">
-          <span>{{ game.host }} ⋅ {{ game.teamRed.playerTwo }}</span>
+          <span>{{ game.players.one }}</span>
+          ⋅
+          <span>{{ game.players.two }}</span>
           <hr>
           <p>vs</p>
           <hr>
-          <span>{{ game.teamBlue.playerOne }} ⋅ {{ game.teamBlue.playerTwo }}</span>
+          <span>{{ game.players.three }}</span>
+          ⋅
+          <span>{{ game.players.four }}</span>
         </div>
       </div>
       <div class="item item-divider">
         {{ game.desc }}
       </div>
-      <div class="join-game item item-text-wrap">
-        <p>JOIN ME!<spanicon-on="ion-arrow-right-c"></span></p>
+      <div class="join-game item">
+        <a ui-sref='getGame({id:game._id})' class="button button-outline button-light ion-chevron-right"></a>
       </div>
     </div>
-    </ul>
   </ion-content>
 </ion-view>

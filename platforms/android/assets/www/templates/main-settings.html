@@ -1,26 +1,45 @@
 <ion-view view-title="Settings" ng-controller="settingController">
 
-  <ion-content class="padding">
-    <div class="row responsive-sm">
-      <div class="col">Update your credentials:</div>
-    </div>
+  <ion-content class="padding" novalidate>
+
+    <p class="error" ng-model="settings.error" type=text> {{settings.error}}</p>
+
+<form name="headerUpdate" ng-submit="logoutThisUser()" ng-controller="logOutController">
+    <div style="display:block; text-align:left; float:left;">
+Update your credentials:</div>
+<div style="display:block; text-align:right;">
+      <button class="text-right ion-android-exit" type="submit" value="logout" >
+        logout
+      </button>
+</div>
+</form>
+  <form class="list" name="settingForm" ng-submit="updateSettingForm()" novalidate>
+
+
+
+
     <div class="list">
+<!-- Username soll nicht geupadted werden da dieser uniq ist. <label class="item item-input item-floating-label">
+    <span class="input-label">new username: </span>
+    <input type="text" name="username" ng-model="settings.username" placeholder="Old username: {{oldUsername}}" ng-minlength="5">
+  </label>-->
   <label class="item item-input item-floating-label">
-    <span class="input-label">new username</span>
-    <input type="text" ng-model="settings.username" placeholder="Old username:{{$rootScope.username}}">
+    <span class="input-label">new email: </span>
+    <input type="email" name="email" ng-model="settings.email" placeholder="Old email: {{oldEmail}}" ng-minlength="5" >
   </label>
   <label class="item item-input item-floating-label">
-    <span class="input-label">new email</span>
-    <input type="text" ng-model="settings.email" placeholder="Old email:{{$rootScope.email}}">
+    <span class="input-label">new password: </span>
+    <input type="password" name="password" ng-model="settings.password" placeholder="Old password (non hash): {{oldPassword}}" ng-minlength="3">
   </label>
-  <label class="item item-input item-floating-label">
-    <span class="input-label">new password</span>
-    <input type="text" ng-model="settings.password" placeholder="Old password (hash): {{$rootScope.password}}">
-  </label>
-  <button class="button button-block button-positive" ng-click="updateSettingForm()">
-  Update!
+  <button type="submit" ng-disabled="settingForm.$invalid" class="button button-block button-positive">Update!</button>
 </button>
 </label>
+</div>
+<div class="padding">
+<!--  <p ng-show="settingForm.username.$error.minlength">* username must be longer than 5 characters</p> -->
+  <p ng-show="settingForm.email.$invalid && !settingForm.email.$pristine">* Emailfield must be an email address</p>
+  <p ng-show="settingForm.email.$error.minlength">* Email must be longer than 5 characters</p>
+  <p ng-show="settingForm.password.$error.minlength">* Password must be longer than 3 characters</p>
 </div>
   </ion-content>
 </ion-view>

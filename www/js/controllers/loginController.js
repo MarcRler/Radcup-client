@@ -3,6 +3,15 @@ angular.module('radcup').controller('loginController', function ($scope, userSer
 der userService.login function. */
 $scope.login = {};
     $scope.submitLoginForm = function() {
+
+        userService.checkApi($scope.login).then(function(data){
+        console.log(data);
+        },function (error) {
+        console.log(error);
+        if (error.status == 0)
+        $scope.login.error='Error: backend is not running!';
+        });
+
         userService.login($scope.login).then(function (data) {
           $scope.login.email=data;
           var name = window.localStorage['email'] ;
