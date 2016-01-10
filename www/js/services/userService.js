@@ -67,7 +67,7 @@ headers vorhanden zu sein. function wird von login function gerufen
   };
 /* diese function dient dem zusammensetzen des HTTP Default Authorization header
 es werden die zuvor gespeicherten values "email" und password hierfür genutzt.
-Wenn es funktioniert hat wird ein True geliefert. 
+Wenn es funktioniert hat wird ein True geliefert.
 */
   this.setUserHeader = function(){
     var email=window.localStorage['email'];
@@ -76,19 +76,23 @@ Wenn es funktioniert hat wird ein True geliefert.
     console.log('default header upon is: '+$http.defaults.headers.common.Authorization);
     return true;
   };
-
+/* logout function leert http default header und local storage
+*/
   this.logout = function(){
     //delete auth header!
    delete $http.defaults.headers.common['Authorization'];
-   console.log($http.defaults.headers.common['Authorization']);
+   console.log("this should undefined: "+$http.defaults.headers.common['Authorization']);
    //delete locale credentials
    delete window.localStorage['email'];
    delete window.localStorage['password'];
    delete window.localStorage['username'];
    delete window.localStorage['userid'];
+   console.log("localStorage userid should be undefined: "+window.localStorage['userid']);
    return true;
   }
-
+/* update function wird genutzt um dem User die Möglicheit zu bieten seine Email
+oder password ändern zu können.
+*/
   this.update = function(settings){
     console.log(settings);
     $http.defaults.headers.post["Content-Type"] = "application/json";

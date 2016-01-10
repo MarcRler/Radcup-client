@@ -1,6 +1,7 @@
 angular.module('radcup').controller('mapController', function($scope, locationService, $location, gamesService,$state) {
-
-  var button = document.getElementById('asdf');
+  /* mapController dient als Bindeglied zwischen der map view und
+  der location.getPosition function. */
+  var button = document.getElementById('startMapButton');
   button.style.visibility = 'hidden';
 
   var chosenPosition = null;

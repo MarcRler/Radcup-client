@@ -1,4 +1,7 @@
 angular.module('radcup').controller('gameController', function ($scope, $stateParams, $state, gamesService, userService) {
+  /* gameController dient als Bindeglied zwischen der game view und
+  der gamesService.allGames function.
+  */
   $scope.$on('$ionicView.enter', function () {
     $scope.loadGame();
     $scope.user = window.localStorage.userid;
