@@ -1,15 +1,18 @@
-<ion-view title="Tabs Controller">
-  <ion-tabs class="tabs-icon-top tabs-color-active-positive tabs-stable">
-
-    <ion-tab title="Games" icon-on="ion-ios-game-controller-b" icon-off="ion-ios-game-controller-b-outline" href="#/main/games">
+<ion-view>
+  <ion-tabs class="tabs-striped tabs-top tabs-color-assertive tabs-color-light">
+    <ion-tab icon="ion-ios-game-controller-b" href="#/main/games">
       <ion-nav-view name="main-games"></ion-nav-view>
     </ion-tab>
 
-    <ion-tab title="My Games" icon-on="ion-beer" icon-off="ion-beer" href="#/main/myGames">
+    <ion-tab icon="ion-beer" href="#/main/myGames">
       <ion-nav-view name="main-myGames"></ion-nav-view>
     </ion-tab>
 
-    <ion-tab title="Settings" icon-on="ion-ios-settings-strong" icon-off="ion-ios-settings" href="#/main/settings">
+    <ion-tab icon="ion-star" href="#/main/rules">
+      <ion-nav-view name="main-rules"></ion-nav-view>
+    </ion-tab>
+
+    <ion-tab icon="ion-settings" href="#/main/settings">
       <ion-nav-view name="main-settings"></ion-nav-view>
     </ion-tab>
 

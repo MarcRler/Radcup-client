@@ -18,6 +18,7 @@ angular.module('radcup', ['ionic', 'ngCordova' , 'ui.router', 'ngResource'])
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
+    //check cordova internet Connection of the devices!
     if(window.Connection) {
           if(navigator.connection.type == Connection.NONE) {
             $ionicPopup.confirm({
@@ -35,12 +36,14 @@ angular.module('radcup', ['ionic', 'ngCordova' , 'ui.router', 'ngResource'])
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
 
   // Ionic uses AngularUI Router which uses the concept of states
   // Learn more here: https://github.com/angular-ui/ui-router
   // Set up the various states which the app can be in.
   // Each state's controller can be found in controllers.js
+  $ionicConfigProvider.backButton.previousTitleText(false).text('');
+  
   $stateProvider
     .state('landing', {
       url: '/',
@@ -98,7 +101,18 @@ angular.module('radcup', ['ionic', 'ngCordova' , 'ui.router', 'ngResource'])
     .state('getGame', {
       url: '/games/:id',
       templateUrl: 'templates/game.html'
-      // controller: 'js/controllers/gameController'
+    })
+    .state('main.rules', {
+      url: '/rules',
+      views: {
+        'main-rules': {
+          templateUrl: 'templates/rules.html'
+        }
+      }
+    })
+    .state('gameOverview', {
+      url: '/games/:id',
+      templateUrl: 'templates/gameOverview.html'
     });
 
   // if none of the above states are matched, use this as the fallback

@@ -1,11 +1,5 @@
-.landingimage {
-  padding: 10px;
-  height: 90%;
-  width: 100%
-}
-
-#padding {
-  padding: 10px;
+body{
+  font-family: 'Noto Sans', sans-serif;
 }
 
 #map {
@@ -50,4 +44,70 @@
 .game-content{
   text-align: center;
   margin: auto;
+}
+
+/* header */
+.header-item{
+  background-image: url('/img/tabbar-icons/band.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.bar.bar-stable{
+  background-color: #fff;
+}
+.bar.bar-stable .title {
+  color: #fff;
+}
+
+.bar .title {
+  height: 50px;
+}
+
+/* icons */
+.ion-ios-game-controller-b:before{
+  content: url('/img/tabbar-icons/all-games.svg') !important;
+}
+
+.ion-beer:before{
+  content: url('/img/tabbar-icons/my-games.svg') !important;
+}
+
+.ion-star:before{
+  content: url('/img/tabbar-icons/rules.svg') !important;
+}
+
+.ion-settings:before{
+  content: url('/img/tabbar-icons/settings.svg') !important;
+}
+
+/* landing screen */
+.sliders {
+  margin-top: 50px;
+  height: 75%;
+  width: 100%;
+}
+
+.landing-buttons{
+  background-color: #fff;
+  text-align: center;
+}
+
+.landing-button{
+  text-align: center;
+  height: 80px;
+  width: 80px;
+  margin: 0 3% 0 3%;
+}
+
+.login-button{
+  content: url('/img/landing-icons/login.svg');
+}
+
+.register-button{
+  content: url('/img/landing-icons/register.svg');
+}
+
+.explore-button{
+  content: url('/img/landing-icons/explore.svg');
 }

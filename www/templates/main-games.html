@@ -1,9 +1,10 @@
-<ion-view view-title="Games" ng-controller="gamesController">
+<ion-view view-title="GAMES" ng-controller="gamesController">
   <ion-content class="padding">
-    <a class="button button-block button-positive" href="#/newGame">
-      New Game
+    <a class="button button-new-game button-block button-outline button-assertive" href="#/newGame">
+      NEW GAME!
     </a>
     <div class="card gamecards" ng-repeat="game in games" ng-show="game.state===undefined">
+
       <div class="item item-text-wrap">
         <div class="item">
           <span>{{ game.players.one }}</span>
