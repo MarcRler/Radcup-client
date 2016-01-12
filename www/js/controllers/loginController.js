@@ -3,7 +3,7 @@ angular.module('radcup').controller('loginController', function ($scope, userSer
 der userService.login function. */
 $scope.login = {};
     $scope.submitLoginForm = function() {
-
+        /*checkApi dient zum prüfen ob Backend läuft*/
         userService.checkApi($scope.login).then(function(data){
         console.log(data);
         },function (error) {
