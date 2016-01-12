@@ -4,10 +4,9 @@ der userService.logout function. */
 $scope.logout = {};
     $scope.logoutThisUser = function() {
       if(userService.logout()){
-          // wenn http header gelöscht, leite weiter auf login
+          // wenn logout erfolgreich war, leite weiter auf login
           $window.location = '#/login';
           $window.location.reload();
-          
       } else{
         alert('unknown error occured: ');
       }

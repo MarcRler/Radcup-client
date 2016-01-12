@@ -6,18 +6,27 @@ angular.module('radcup').controller('gameController', function ($scope, $statePa
     $scope.loadGame();
     $scope.user = window.localStorage.userid;
   });
+
+  /* updateGame function, wird genutzt um aktuelles Spiel Objekt zu aktualisieren
+  */
   $scope.updateGame = function () {
     $scope.game.$update(function () {
       $state.go('main.games');
     });
   };
 
+  /* loadGame function, ruft aus GameService alle Spiele mit einer entsprechenden
+  Spiel ID auf und setzt diese in den scope um es in der View anzuzeigen
+  */
   $scope.loadGame = function () {
     $scope.game = gamesService.allGames().get({ id: $stateParams.id });
   };
 
   $scope.loadGame();
 
+  /*join function, wird genutzt um freie Plätze anzuzeigen bzw. um einem freien
+  Platz beitreten zu können.
+  */
   $scope.join = function (position) {
     switch (position) {
       case 2:

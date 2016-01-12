@@ -6,7 +6,7 @@ angular.module('radcup').controller('newGameController', function($scope, $http,
   });
 
   $scope.game = {};
-
+//initializeGame function legt neues Spiel mit leeren lat/Lat und Beschreibung an
   $scope.initializeGame = function() {
     var newGame = {
       desc: $scope.game.desc,

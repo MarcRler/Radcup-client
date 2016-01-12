@@ -5,24 +5,24 @@ angular.module('radcup').controller('mapController', function($scope, locationSe
   button.style.visibility = 'hidden';
 
   var chosenPosition = null;
-
+  // position abrufen
   locationService.getPosition().then(function(position) {
     var markers = [];
-
+   //neue map anlegen, mit entsprechenden Paramtern wie zoom etc.
     if (!position) return;
     var map = new google.maps.Map(document.getElementById('map'), {
       center: position,
       scrollwheel: false,
       zoom: 14
     });
-
+    //neuen Marker mit eigener Position auf Map anlegen
     var marker = new google.maps.Marker({
       position: position,
       map: map,
       title: 'Your Position!',
       icon: 'img/location.png'
     });
-
+    //neuen click Listener anlegen wird für addMarker benötigt
     map.addListener('click', function(event) {
       clearMarkers();
       button.style.visibility = 'visible';
@@ -30,7 +30,7 @@ angular.module('radcup').controller('mapController', function($scope, locationSe
       console.log(chosenPosition);
       addMarker(chosenPosition);
     });
-
+   // Marker auf Map nach Click setzen (blaue Fahne)
     function addMarker(location) {
       var marker = new google.maps.Marker({
         position: location,
@@ -40,17 +40,17 @@ angular.module('radcup').controller('mapController', function($scope, locationSe
       });
       markers.push(marker);
     }
-
+   //rendert Map
     function setMapOnAll(map) {
       for (var i = 0; i < markers.length; i++) {
         markers[i].setMap(map);
       }
     }
-
+    //marker entfernen
     function clearMarkers() {
       setMapOnAll(null);
     }
-
+    //marker löschen
     function deleteMarkers() {
       clearMarkers();
       markers = [];
@@ -59,7 +59,7 @@ angular.module('radcup').controller('mapController', function($scope, locationSe
   });
 
 
-
+ //neues Spiel anlegen, anschließend auf main.games umleiten.
   $scope.createGame = function() {
 
     gamesService.createNewGame(chosenPosition).then(function() {
