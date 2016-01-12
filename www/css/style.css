@@ -1,10 +1,23 @@
+/* general */
+
 body{
   font-family: 'Noto Sans', sans-serif;
 }
 
+.ion-ios-arrow-back{
+  color: #EF5350;
+}
+
+.back-button{
+  margin-top: 6px;
+}
+
+/* Map */
+
 #map {
-  width: 100%;
+  margin-top: 8px;
   height: 100%;
+  width: 100%;
 }
 
 .scroll {
@@ -111,3 +124,5 @@ body{
 .explore-button{
   content: url('/img/landing-icons/explore.svg');
 }
+
+/* main-Games */
