@@ -1,7 +1,13 @@
 <ion-view view-title="Game" ng-controller="gameController">
   <ion-content>
     <div class='game-content'>
-      <div>
+      <div >
+        <p ng-model="time">
+          {{time}}
+        </p>
+        <p ng-model="address">
+          {{address}}
+        </p>
         <label class="item item-input">
           <input lass="input-label" type='text' ng-model="game.players.one" id='playerOne' readonly></input>
         </label>
@@ -24,7 +30,7 @@
       </label>
       <button ng-if="game.players.four === 'freeSlot'" ng-click="join(4)">Play Here</button>
       <br>
-      <button class="button" ng-click="updateGame()">Join Game</button>
+      <button class="button" ng-click="showConfirm()">Join Game</button>
     </div>
   </ion-content>
 </ion-view>

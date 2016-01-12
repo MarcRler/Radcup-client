@@ -3,7 +3,7 @@
     <a class="button button-block button-positive" href="#/newGame">
       New Game
     </a>
-    <div class="card gamecards" ng-repeat="game in games">
+    <div class="card gamecards" ng-repeat="game in games" ng-show="game.state===undefined">
       <div class="item item-text-wrap">
         <div class="item">
           <span>{{ game.players.one }}</span>

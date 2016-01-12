@@ -1,9 +1,10 @@
 <ion-view view-title="Game" ng-controller="gameOverviewController">
   <ion-content>
-    <p>
-      Info:
-    </p>
+
     <div class="list">
+      <p>
+        Info:
+      </p>
       <label class="item">
         <p>{{game.desc}}</p>
       </label>
@@ -15,11 +16,19 @@
       </label>
       <div class="item item-text-wrap">
         <div class="item" ng-controller="gamesController">
+          <p>
+              Team Red:
+          </p>
+          <hr>
           <span>{{ game.players.one }}</span>
           ⋅
           <span>{{ game.players.two }}</span>
           <hr>
           <p>vs</p>
+          <hr>
+          <p>
+            Team Blue:
+          </p>
           <hr>
           <span>{{ game.players.three }}</span>
           ⋅
@@ -27,14 +36,16 @@
         </div>
       </div>
     </div>
-    <p>
-      Results:
-    </p>
-    <div class="list">
+
+    <div class="list" ng-show="game.state==='started'||game.state==='finished'">
+      <p>
+        Results:
+      </p>
       <label class="item">
         <span class="input-label">Winner</span>
-        <ion-radio ng-disabled="game.state!='started'||game.players.one!=user.username" ng-model="game.results.winner" ng-value="'Blue'">Choose Blue</ion-radio>
-        <ion-radio ng-disabled="game.state!='started'||game.players.one!=user.username" ng-model="game.results.winner" ng-value="'Red'">Coose Red</ion-radio>
+        <ion-radio ng-disabled="game.state!='started'||game.players.one!=user.username" ng-model="game.results.winner" ng-value="'Blue'">Blue</ion-radio>
+        <ion-radio ng-disabled="game.state!='started'||game.players.one!=user.username" ng-model="game.results.winner" ng-value="'Red'">Red</ion-radio>
+        <ion-radio ng-disabled="game.state!='started'||game.players.one!=user.username" ng-model="game.results.winner" ng-value="'Draw'">Draw!</ion-radio>
       </label>
       <label class="item item-input">
         <span class="input-label">Cups left</span>
@@ -42,18 +53,21 @@
       </label>
       <label class="item">
           <span class="input-label">StartTime</span>
-        <p>{{game.results.startTime}}</p>
+        <p>{{results.startTime}}</p>
       </label>
       <label class="item">
           <span class="input-label">Endtime</span>
-        <p>{{game.results.endTime}}</p>
+        <p>{{results.endTime}}</p>
       </label>
     </div>
-    <button class="button button-block button-positive" ng-show="game.players.one===user.username&&game.state==='startable'" ng-click="updateGame(1)" id="start">
+    <button class="button button-block button-positive" ng-show="game.players.one===user.username&&game.state==='startable'&&dateDate.timeNow>timeDate.meetingPoint" ng-click="updateGame(1)" id="start">
       Start Game
     </button>
-    <button class="button button-block button-positive" ng-show="game.players.one===user.username&&game.state==='started'" ng-click="updateGame(2)" id="finish">
+    <button class="button button-block button-positive" ng-show="game.players.one===user.username&&game.state==='started'" ng-disabled="game.results.winner==='No Winner'||game.results.loserCupsLeft>10||game.results.loserCupsLeft===null" ng-click="updateGame(2)" id="finish">
       Finish Game
     </button>
+    <p ng-show="dateDate.timeNow<timeDate.meetingPoint&&game.state==='startable'">
+      * Die Uhrzeit und das Datum des MeetingPoints muss erreicht sein um das Spiel zu starten
+    </p>
   </ion-content>
 </ion-view>
