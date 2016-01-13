@@ -11,7 +11,7 @@
       </label>
     </div>
     <div class="col-50 col-offset-25">
-      <a class="button button-block button-assertive" ng-click="initializeGame()" href="#/map">Next</a>
+      <a ng-disabled="game.time===undefined||game.time===null||game.time<date" class="button button-block button-assertive" ng-click="initializeGame()" href="#/map">Next</a>
     </div>
-   </ion-content>
+  </ion-content>
 </ion-view>

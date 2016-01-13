@@ -1,4 +1,4 @@
-angular.module('radcup').controller('gameController', function ($scope, $stateParams, $state, gamesService, userService) {
+angular.module('radcup').controller('gameController', function ($scope, $stateParams, $state, gamesService, userService,$ionicPopup) {
   /* gameController dient als Bindeglied zwischen der game view und
   der gamesService.allGames function.
   */
@@ -19,15 +19,28 @@ angular.module('radcup').controller('gameController', function ($scope, $statePa
   Spiel ID auf und setzt diese in den scope um es in der View anzuzeigen
   */
   $scope.loadGame = function () {
-    $scope.game = gamesService.allGames().get({ id: $stateParams.id });
-  };
+    var game = gamesService.allGames().get({ id: $stateParams.id });
 
-  $scope.loadGame();
+    game.$promise.then(function(data) {
+
+      $scope.game = game;
+
+      setAddress();
+
+      $scope.time = setTimeForGame($scope.game.time);
+
+    });
+  };
 
   /*join function, wird genutzt um freie Plätze anzuzeigen bzw. um einem freien
   Platz beitreten zu können.
   */
   $scope.join = function (position) {
+
+    $scope.game.players.two = "freeSlot";
+    $scope.game.players.three = "freeSlot";
+    $scope.game.players.four = "freeSlot";
+
     switch (position) {
       case 2:
         if ($scope.game.players.two === 'freeSlot') {
@@ -52,4 +65,58 @@ angular.module('radcup').controller('gameController', function ($scope, $statePa
         break;
     };
   };
+
+  setAddress = function() {
+
+    var geocoder = new google.maps.Geocoder();
+    var location = new google.maps.LatLng($scope.game.lat, $scope.game.lng);
+    geocoder.geocode({
+      'latLng': location
+    }, function(results, status) {
+      if (status == google.maps.GeocoderStatus.OK) {
+        var add = results[0].formatted_address;
+        $scope.address = add;
+      }
+    });
+  }
+
+  setTimeForGame = function(time) {
+
+    var date = new Date(time);
+    var day = date.getDate();
+    var month = date.getMonth() + 1;
+    var year = date.getFullYear();
+    var hours = date.getHours();
+    var hoursSize = hours.toString().length;
+    var minutes = date.getMinutes();
+    var minutesSize = minutes.toString().length;
+
+    if (hoursSize == 1) {
+      hours = 0 + '' + hours;
+    }
+
+    if (minutesSize == 1) {
+      minutes = 0 + '' + minutes;
+    }
+
+    var playDate = day + '.' + month + '.' + year + ' ' + hours + ':' + minutes;
+
+    return playDate;
+  }
+
+  $scope.showConfirm = function() {
+  var confirmPopup = $ionicPopup.confirm({
+    title: 'Dem Team wirklich beitreten?',
+    template: 'Zur Zeit ist das nachträgliche wechseln nichtmehr möglich'
+  });
+
+  confirmPopup.then(function(res) {
+    if(res) {
+      console.log('You are sure');
+      $scope.updateGame()
+    } else {
+      console.log('You are not sure');
+    }
+  });
+};
 });

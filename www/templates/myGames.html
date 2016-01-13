@@ -26,8 +26,11 @@
           <span>{{ game.players.four }}</span>
         </div>
       </div>
-      <div class="item item-text-wrap">
+      <div class="item item-divider">
         {{ game.desc }}
+      </div>
+      <div class="item item-divider" ng-show="game.state!=undefined">
+        {{ game.state }}
       </div>
       <div class="join-game item">
         <a ui-sref='gameOverview({id:game._id})'  class="button button-outline button-light ion-chevron-right">

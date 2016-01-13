@@ -3,6 +3,7 @@ angular.module('radcup').controller('newGameController', function($scope, $http,
   der gameService.initializeGame function. */
   $scope.$on('$ionicView.beforeEnter', function (event, viewData) {
     viewData.enableBack = true;
+    $scope.date = new Date();
   });
 
   $scope.game = {};
