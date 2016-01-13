@@ -5,4 +5,18 @@ angular.module('radcup').controller('gamesController', function($scope, gamesSer
     $scope.games = gamesService.joinableGames().query();
   });
 
+  $scope.getIcons = function (username, position) {
+    if (username != 'freeSlot'){
+      switch (position) {
+        case 'red':
+          return 'red-players';
+        break;
+        case 'green':
+          return 'green-players';
+        break;
+      };
+    }else{
+      return 'free-slot';
+    };
+  };
 });

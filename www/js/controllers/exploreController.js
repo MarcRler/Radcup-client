@@ -5,4 +5,5 @@ angular.module('radcup').controller('exploreController', function($scope, $state
   $scope.$on('$ionicView.enter', function() {
     $scope.games = gamesService.allGames().query();
   });
+
 });

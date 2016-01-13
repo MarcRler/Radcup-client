@@ -8,7 +8,7 @@
 <path fill="none" stroke="#231F20" stroke-width="15" stroke-miterlimit="10" d="M140.6,288.4"/>
 <path fill="#FFFFFF" stroke="#EF5350" stroke-width="14.4105" stroke-miterlimit="10" d="M149.2,244.6v46.1
 	c0,8.9,7.2,16.1,16.1,16.1h187.8c8.9,0,16.1-7.2,16.1-16.1V102.9c0-8.9-7.2-16.1-16.1-16.1H165.3c-8.9,0-16.1,7.2-16.1,16.1V149"/>
-<polyline fill="none" stroke="#EF5350" stroke-width="14.4105" stroke-linecap="round" stroke-miterlimit="10" points="149.3,231.6 
+<polyline fill="none" stroke="#EF5350" stroke-width="14.4105" stroke-linecap="round" stroke-miterlimit="10" points="149.3,231.6
 	193.4,196.6 149.2,162 "/>
 <polygon fill="#37B34A" points="107.2,481.1 0,481.1 25.2,418.1 0,355.2 96.5,355.2 "/>
 <polygon fill="#37B34A" points="404.8,481.1 512,481.1 486.8,418.1 512,355.2 415.5,355.2 "/>

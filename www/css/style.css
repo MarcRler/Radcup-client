@@ -12,6 +12,28 @@ body{
   margin-top: 6px;
 }
 
+@media not all, (-webkit-min-device-pixel-ratio: 1.5), not all,
+(min-resolution: 144dpi), (min-resolution: 1.5dppx)
+.bar {
+    background-image: linear-gradient(0deg, #fff, #fff 50%, transparent 50%);
+    background-position: bottom;
+    background-size: 100% 1px;
+    background-repeat: no-repeat;
+}
+
+.bar.bar-stable {
+    border-color: #b2b2b2;
+    background-color: #f8f8f8;
+    background-image: linear-gradient(0deg, #fff, #fff 50%, transparent 50%);
+    color: #444;
+}
+
+/* Nav */
+
+.tab-nav, .tabs{
+  margin-top: 10px;
+}
+
 /* Map */
 
 #map {
@@ -126,3 +148,44 @@ body{
 }
 
 /* main-Games */
+
+/* players */
+
+.item-text-wrap .item, .item-text-wrap .item-content, .item-text-wrap,
+.item-text-wrap h1, .item-text-wrap h2, .item-text-wrap h3, .item-text-wrap h4,
+.item-text-wrap h5, .item-text-wrap h6, .item-text-wrap p,
+.item-complex.item-text-wrap .item-content, .item-body h1,
+.item-body h2, .item-body h3, .item-body h4, .item-body h5, .item-body h6,
+.item-body p {
+  overflow: hidden;
+}
+
+.players{
+  height: 65px;
+  width: auto;
+  margin-bottom: -15px;
+}
+
+.left-player{
+  float: left;
+  margin-left: 35px;
+}
+
+.right-player{
+  float: right;
+  margin-right: 35px;
+}
+
+.versus{
+  margin-top: 100px;
+  width: 100%;
+  height: 11px;
+}
+
+.versus p {
+  color: black;
+  font-size: 18px;
+  width: 40px;
+  background-color: #F3F5F6;
+  margin: auto;
+}
