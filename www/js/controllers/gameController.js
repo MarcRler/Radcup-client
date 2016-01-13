@@ -37,9 +37,13 @@ angular.module('radcup').controller('gameController', function ($scope, $statePa
   */
   $scope.join = function (position) {
 
-    $scope.game.players.two = "freeSlot";
-    $scope.game.players.three = "freeSlot";
-    $scope.game.players.four = "freeSlot";
+    if($scope.game.players.two===window.localStorage.username){
+      $scope.game.players.two = "freeSlot";
+    }else if($scope.game.players.three===window.localStorage.username){
+      $scope.game.players.three = "freeSlot";
+    }else if($scope.game.players.four===window.localStorage.username){
+      $scope.game.players.four = "freeSlot";
+    }        
 
     switch (position) {
       case 2:
