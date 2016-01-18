@@ -64,7 +64,6 @@ angular.module('radcup').controller('mapController', function($scope, locationSe
 
     gamesService.createNewGame(chosenPosition).then(function() {
 
-      alert("success");
       $state.go('main.games');
 
     }, function(error) {
