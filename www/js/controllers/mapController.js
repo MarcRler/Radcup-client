@@ -36,7 +36,6 @@ angular.module('radcup').controller('mapController', function($scope, locationSe
         position: location,
         map: map,
         icon: '/img/location-icons/set-gamelocation.svg'
-
       });
       markers.push(marker);
     }
@@ -55,23 +54,16 @@ angular.module('radcup').controller('mapController', function($scope, locationSe
       clearMarkers();
       markers = [];
     }
-
   });
-
-
  //neues Spiel anlegen, anschließend auf main.games umleiten.
   $scope.createGame = function() {
-
     gamesService.createNewGame(chosenPosition).then(function() {
 
       $state.go('main.games');
-
     }, function(error) {
-
       if (error == null) {
-        alert("fail")
+        console.log("fail in mapController");
       }
     });
   }
-
 });
