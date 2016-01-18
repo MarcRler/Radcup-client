@@ -36,12 +36,17 @@ angular.module('radcup').controller('gameOverviewController', function($scope, g
 
       setAddress();
 
-      $scope.time = setTimeForGame($scope.game.time);
+      splitTime(setTimeForGame(game.time));
       $scope.results.startTime = setTimeForGame($scope.game.results.startTime);
       $scope.results.endTime = setTimeForGame($scope.game.results.endTime);
 
     });
   };
+
+  splitTime = function (time) {
+    $scope.date = time.split(/\s/g)[0];
+    $scope.daytime = time.split(/\s/g)[1];
+  }
 
   $scope.updateGame = function(param) {
 
@@ -74,10 +79,18 @@ angular.module('radcup').controller('gameOverviewController', function($scope, g
     }, function(results, status) {
       if (status == google.maps.GeocoderStatus.OK) {
         var add = results[0].formatted_address;
-        $scope.address = add;
+        $scope.$apply(function(){
+          splitAddress(add);
+        });
       }
     });
   }
+
+  splitAddress = function (address) {
+    $scope.street = address.split(/,/g)[0];
+    $scope.city = address.split(/,/g)[1];
+    $scope.country = address.split(/,/g)[2];
+  };
 
   setTimeForGame = function(time) {
 

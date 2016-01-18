@@ -1,16 +1,66 @@
-.landingimage {
-  padding: 10px;
-  height: 90%;
-  width: 100%
+/* general */
+
+body{
+  font-family: 'Noto Sans', sans-serif;
 }
 
-#padding {
-  padding: 10px;
+.ion-ios-arrow-back{
+  color: #EF5350;
 }
+
+.back-button{
+  margin-top: 6px;
+}
+
+@media not all, (-webkit-min-device-pixel-ratio: 1.5), not all,
+(min-resolution: 144dpi), (min-resolution: 1.5dppx)
+.bar {
+  background-image: linear-gradient(0deg, #fff, #fff 50%, transparent 50%);
+  background-position: bottom;
+  background-size: 100% 1px;
+  background-repeat: no-repeat;
+}
+
+.bar.bar-stable {
+  border: none;
+  background-color: #f8f8f8;
+  background-image: linear-gradient(0deg, #fff, #fff 50%, transparent 50%);
+  color: #444;
+}
+
+/* Nav */
+
+.tab-nav, .tabs{
+  margin-top: 10px;
+}
+
+.tabs-striped .tabs {
+  border-bottom: none;
+}
+
+/* tabbar */
+.ion-ios-game-controller-b:before{
+  content: url('/img/tabbar-icons/all-games.svg') !important;
+}
+
+.ion-beer:before{
+  content: url('/img/tabbar-icons/my-games.svg') !important;
+}
+
+.ion-star:before{
+  content: url('/img/tabbar-icons/rules.svg') !important;
+}
+
+.ion-settings:before{
+  content: url('/img/tabbar-icons/settings.svg') !important;
+}
+
+/* Map */
 
 #map {
-  width: 100%;
+  margin-top: 8px;
   height: 100%;
+  width: 100%;
 }
 
 .scroll {
@@ -50,4 +100,146 @@
 .game-content{
   text-align: center;
   margin: auto;
+}
+
+/* header */
+.header-item{
+  background-image: url('/img/tabbar-icons/band.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.bar.bar-stable{
+  background-color: #fff;
+}
+.bar.bar-stable .title {
+  color: #fff;
+}
+
+.bar .title {
+  height: 50px;
+}
+
+
+/* landing screen */
+.sliders {
+  margin-top: 50px;
+  height: 80%;
+  width: 100%;
+}
+
+.button-bar{
+  bottom: 0;
+}
+
+.landing-buttons{
+  background-color: #fff;
+  text-align: center;
+}
+
+.landing-button{
+  text-align: center;
+  height: 80px;
+  width: 80px;
+  margin: 0 3% 0 3%;
+}
+
+.login-button{
+  content: url('/img/landing-icons/login.svg');
+}
+
+.register-button{
+  content: url('/img/landing-icons/register.svg');
+}
+
+.explore-button{
+  content: url('/img/landing-icons/explore.svg');
+}
+
+/* main-Games */
+
+/* players */
+
+.item-text-wrap .item, .item-text-wrap .item-content, .item-text-wrap,
+.item-text-wrap h1, .item-text-wrap h2, .item-text-wrap h3, .item-text-wrap h4,
+.item-text-wrap h5, .item-text-wrap h6, .item-text-wrap p,
+.item-complex.item-text-wrap .item-content, .item-body h1,
+.item-body h2, .item-body h3, .item-body h4, .item-body h5, .item-body h6,
+.item-body p {
+  overflow: hidden;
+}
+
+.players{
+  height: 65px;
+  width: auto;
+  margin-bottom: -15px;
+}
+
+.left-player{
+  float: left;
+  margin-left: 35px;
+}
+
+.right-player{
+  float: right;
+  margin-right: 35px;
+}
+
+.versus{
+  margin-top: 100px;
+  width: 100%;
+  height: 11px;
+}
+
+.versus p {
+  color: black;
+  font-size: 18px;
+  width: 40px;
+  background-color: #F3F5F6;
+  margin: auto;
+}
+
+/* game */
+.versus-in-game{
+  margin-top: 150px;
+}
+
+.versus-in-game p {
+  background-color: #fff;
+}
+
+.gamecards-in-game{
+  border: none;
+}
+
+.button.button-balanced.button-outline {
+  background: transparent;
+  border-color: #2A963E;
+  color: #2A963E;
+}
+
+.player-names{
+  margin-bottom: 50px;
+}
+
+/*  gameoverview */
+
+.item-gameoverview{
+  border: none;
+}
+
+.game-meta-information{
+  text-align: center;
+}
+
+.game-meta-information hr {
+  width: 150px;
+}
+
+.versus-in-gameoverview p{
+  background-color: #fff;
+}
+
+.game-meta-information hr {
+  width: 150px;
 }

@@ -1,6 +1,6 @@
 <ion-view view-title="REGISTER" ng-controller="registerController">
   <ion-content>
-    <p class="error" ng-model="user.error" type=text> {{user.error}}</p>
+    <br>
     <form class="list" name="registerForm" ng-submit="register()" novalidate>
       <label class="item item-input item-stacked-label">
         <span class="input-label">USERNAME</span>
@@ -28,6 +28,7 @@
          SIGN ME UP!
        </button>
      </div>
+     <p class="error" ng-model="user.error" type=text> {{user.error}}</p>
     </form>
   </ion-content>
 </ion-view>

@@ -23,7 +23,7 @@ $scope.login = {};
                     console.log("Information from Backend: Unauthorized - Please use valid credentials!")
                     $scope.login.error='Please use valid credentials!';
                   } else {
-                    alert('unknown error occured')
+                    console.log('unknown error occured')
                   }
         });
     };

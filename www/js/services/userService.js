@@ -40,7 +40,7 @@ persistData function aufgerufen.
              this.persistData(data,login);
               resolve(data);
            }else {
-             alert("something strange");
+             console.log("fail in the userService");
            }
 
            },

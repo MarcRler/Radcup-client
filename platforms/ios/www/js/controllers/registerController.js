@@ -4,6 +4,14 @@ angular.module('radcup').controller('registerController', function($scope, userS
   $scope.user = {};
   //register function welche aus der view gerufen wird wenn der submit button gedrückt wurde
   $scope.register = function() {
+    userService.checkApi($scope.user).then(function(data){
+    console.log(data);
+    },function (error) {
+    console.log(error);
+    if (error.status == 0)
+    $scope.user.error='Error: backend is not running!';
+    });
+
     userService.register($scope.user)
       .then(
         function(data) {

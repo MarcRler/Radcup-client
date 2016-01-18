@@ -8,7 +8,7 @@ $scope.logout = {};
           $window.location = '#/login';
           $window.location.reload();
       } else{
-        alert('unknown error occured: ');
+        console.log('unknown error occured: ');
       }
 };
 });

@@ -1,39 +1,41 @@
-<ion-view view-title="Game" ng-controller="gameOverviewController">
+<ion-view view-title="GAME" ng-controller="gameOverviewController">
   <ion-content>
-
-    <div class="list">
+    <div class='game-meta-information'>
+      <br>
       <p>
-        Info:
+        {{ street }}<br>
+        {{ city }}<br>
+        {{ country }}
       </p>
-      <label class="item">
-        <p>{{game.desc}}</p>
-      </label>
-      <label class="item">
-        <p>{{time}}</p>
-      </label>
-      <label class="item">
-        <p>{{address}}</p>
-      </label>
-      <div class="item item-text-wrap">
-        <div class="item" ng-controller="gamesController">
-          <p>
-              Team Red:
-          </p>
-          <hr>
-          <span>{{ game.players.one }}</span>
-          ⋅
-          <span>{{ game.players.two }}</span>
-          <hr>
-          <p>vs</p>
-          <hr>
-          <p>
-            Team Blue:
-          </p>
-          <hr>
-          <span>{{ game.players.three }}</span>
-          ⋅
-          <span>{{ game.players.four }}</span>
-        </div>
+      <hr>
+      <p>
+        {{ date }}<br>
+        {{ daytime }}
+      </p>
+    </div>
+    <div ng-controller="gamesController" class="gamecards item item-gameoverview">
+      <div class="left-player">
+        <div><img class="players" ng-src="/img/players/red-players.png"></img></div>
+        <br>
+        <span>{{ game.players.one }}</span>
+      </div>
+      <div class="right-player">
+        <div><img class="players" ng-src="/img/players/{{ getIcons(game.players.three, 'green') }}.png"></img></div>
+        <br>
+        <span>{{ game.players.three }}</span>
+      </div>
+      <div class="versus versus-in-gameoverview">
+        <p>VS</p>
+      </div>
+      <div class="left-player">
+        <div><img class="players" ng-src="/img/players/{{ getIcons(game.players.two, 'red') }}.png"></img></div>
+        <br>
+        <span>{{ game.players.two }}</span>
+      </div>
+      <div class="right-player">
+        <div><img class="players" ng-src="/img/players/{{ getIcons(game.players.four, 'green') }}.png"></img></div>
+        <br>
+        <span>{{ game.players.four }}</span>
       </div>
     </div>
 
@@ -67,7 +69,11 @@
       Finish Game
     </button>
     <p ng-show="dateDate.timeNow<timeDate.meetingPoint&&game.state==='startable'">
-      * Die Uhrzeit und das Datum des MeetingPoints muss erreicht sein um das Spiel zu starten
+      * The meetingpoint have to be reached to start the game
     </p>
+    <div class="game-meta-information">
+      <hr>
+      <p>{{ game.desc }}</p>
+    </div>
   </ion-content>
 </ion-view>

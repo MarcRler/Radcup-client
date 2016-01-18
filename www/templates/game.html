@@ -1,36 +1,57 @@
-<ion-view view-title="Game" ng-controller="gameController">
+<ion-view view-title="GAME" ng-controller="gameController">
   <ion-content>
     <div class='game-content'>
-      <div >
+      <div>
         <p ng-model="time">
-          {{time}}
+          {{time.date}}
         </p>
         <p ng-model="address">
           {{address}}
         </p>
-        <label class="item item-input">
-          <input lass="input-label" type='text' ng-model="game.players.one" id='playerOne' readonly></input>
-        </label>
-        ⋅
-        <label class="item item-input">
-          <input lass="input-label" type='text' ng-model='game.players.two' id='playerTwo' readonly></input>
-        </label>
-        <button ng-if="game.players.two === 'freeSlot'" ng-click="join(2)">Play Here</button>
-      </div>
-      <hr>
-      <p>vs</p>
-      <hr>
-      <label class="item item-input">
-        <input lass="input-label" type='text' ng-model="game.players.three" id='playerThree' readonly></input>
-      </label>
-      <button ng-if="game.players.three === 'freeSlot'" ng-click="join(3)">Play Here</button>
-      ⋅
-      <label class="item item-input">
-        <input lass="input-label" type='text' ng-model='game.players.four' id='playerFour' readonly></input>
-      </label>
-      <button ng-if="game.players.four === 'freeSlot'" ng-click="join(4)">Play Here</button>
+        <div ng-controller="gamesController" class="gamecards item gamecards-in-game">
+          <div class="left-player">
+            <div><img class="players" ng-src="/img/players/red-players.png"></img></div>
+            <br>
+            <span class="player-names">{{ game.players.one }}</span>
+            <br>
+          </div>
+          <div class="right-player">
+            <div><img class="players" ng-src="/img/players/{{ getIcons(game.players.three, 'green') }}.png"></img></div>
+            <br>
+            <span class="player-names">{{ game.players.three }}</span>
+            <br>
+            <button class="button button-small button-outline button-balanced button-join" ng-if="game.players.three === 'freeSlot'" ng-click="join(3)">
+              JOIN TEAM
+            </button>
+          </div>
+          <div class="versus versus-in-game">
+            <p>VS</p>
+          </div>
+          <div class="left-player">
+            <div><img class="players" ng-src="/img/players/{{ getIcons(game.players.two, 'red') }}.png"></img></div>
+            <br>
+            <span class="player-names">{{ game.players.two }}</span>
+            <br>
+            <button class="button button-small button-outline button-assertive button-join" ng-if="game.players.two === 'freeSlot'" ng-click="join(2)">
+              JOIN TEAM
+            </button>
+          </div>
+          <div class="right-player">
+            <div><img class="players" ng-src="/img/players/{{ getIcons(game.players.four, 'green') }}.png"></img></div>
+            <br>
+            <span class="player-names">{{ game.players.four }}</span>
+            <br>
+            <button class="button button-small button-outline button-balanced button-join" ng-if="game.players.four === 'freeSlot'" ng-click="join(4)">
+              JOIN TEAM
+            </button>
+          </div>
+        </div>
       <br>
-      <button class="button" ng-click="showConfirm()">Join Game</button>
+      <div class="col-50 col-offset-25">
+        <button ng-click="showConfirm()" class="button button-block button-assertive">
+          JOIN GAME
+        </button>
+      </div>
     </div>
   </ion-content>
 </ion-view>
