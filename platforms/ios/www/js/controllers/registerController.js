@@ -15,7 +15,6 @@ angular.module('radcup').controller('registerController', function($scope, userS
     userService.register($scope.user)
       .then(
         function(data) {
-          console.log("register successfull!");
           //ionicHistory etc. dient dazu damit kein zurück button mehr erscheint.
           $ionicHistory.nextViewOptions({
             disableBack: true

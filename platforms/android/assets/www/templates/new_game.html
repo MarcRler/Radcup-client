@@ -1,15 +1,18 @@
 <ion-view view-title="New Game" ng-controller="newGameController">
-  <ion-content class="padding">
+  <ion-content>
+    <br>
     <div class="list" ng-init="init()">
-      <label class="item item-input">
-        <span class="input-label">Description</span>
-        <input type="text" ng-model="game.desc">
-      </label>
-      <label class="item item-input">
-        <span class="input-label">Meeting Point</span>
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">MEETING POINT</span>
         <input type="datetime-local" ng-model="game.time">
       </label>
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">DESCRIPTION</span>
+        <input type="text" ng-model="game.desc">
+      </label>
     </div>
-    <a class="button button-block button-positive" ng-click="initializeGame()" href="#/map">Next</a>
-   </ion-content>
+    <div class="col-50 col-offset-25">
+      <a ng-disabled="game.time===undefined||game.time===null||game.time<date" class="button button-block button-assertive" ng-click="initializeGame()" href="#/map">Next</a>
+    </div>
+  </ion-content>
 </ion-view>
