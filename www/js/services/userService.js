@@ -1,5 +1,5 @@
 angular.module('radcup').service('userService', function($q, $http, $resource, $httpParamSerializerJQLike){
-  var host = 'http://localhost:3000/api/users/';
+  var host = 'http://dockerweb:3000/api/users/';
 
 /*checkApi function, wird dazu genutzt um zu überprüfen ob das Backend auch läuft
 */
@@ -7,7 +7,7 @@ this.checkApi=function(login){
   return $q(function(resolve,reject){
     $http({
       method: 'GET',
-      url: 'http://localhost:3000/api/'
+      url: 'http://dockerweb:3000/api/'
     }).then(
       function(data){
         console.log('success calling the api');

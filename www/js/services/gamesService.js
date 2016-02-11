@@ -5,7 +5,7 @@ PUT dient in diesem Fall auch als POST/GET -> liefert einen promise zurück
 Siehe auch ng-resource Dokumentation
 */
   this.allGames = function () {
-    return $resource('http://localhost:3000/api/games/:id', { id: '@_id' }, {
+    return $resource('http://dockerweb:3000/api/games/:id', { id: '@_id' }, {
       update: {
         method: 'PUT'
       }
@@ -16,14 +16,14 @@ Siehe auch ng-resource Dokumentation
 werden kann
 */
   this.joinableGames = function () {
-    return $resource('http://localhost:3000/api/joinableGames');
+    return $resource('http://dockerweb:3000/api/joinableGames');
   };
 
 /* joinedGames function, liefert alle Spiele zurück in denen der User bereits
 eingetragen ist. Egal ob von im erstellt oder ob er beigetreten ist.
 */
   this.joinedGames = function() {
-    return $resource('http://localhost:3000/api/myGames');
+    return $resource('http://dockerweb:3000/api/myGames');
   };
   var newGame = null;
 
@@ -49,7 +49,7 @@ Datenbank zu perstieren. */
     console.log(this.newGame);
 
     return $q(function(resolve, reject) {
-      $http.post('http://localhost:3000/api/games', self.newGame)
+      $http.post('http://dockerweb:3000/api/games', self.newGame)
       .then(function(data) {
           console.log(data);
           resolve();
