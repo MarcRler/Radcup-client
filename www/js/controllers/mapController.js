@@ -58,6 +58,7 @@ angular.module('radcup').controller('mapController', function($scope, locationSe
  //neues Spiel anlegen, anschließend auf main.games umleiten.
   $scope.createGame = function() {
     gamesService.createNewGame(chosenPosition).then(function() {
+
       $state.go('main.games');
     }, function(error) {
       if (error == null) {

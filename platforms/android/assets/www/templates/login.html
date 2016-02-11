@@ -1,25 +1,28 @@
 <ion-view view-title="LOGIN" ng-controller="loginController">
-  <ion-content class="padding">
-    <p class="error" ng-model="user.error" type=text> {{login.error}}</p>
-    <form class="list" name="registerForm" ng-submit="submitLoginForm()" novalidate>
-
-    <label class="item item-input">
-        <span class="input-label" >E-Mail</span>
+  <ion-content>
+    <br>
+    <form class='list' name="registerForm" ng-submit="submitLoginForm()" novalidate>
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">EMAIL</span>
         <input type="email" name="email" ng-model="login.email" ng-minlength="5" required>
       </label>
-      <label class="item item-input">
-        <span class="input-label" >Password</span>
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">PASSWORD</span>
         <input type="password" name="password" ng-model="login.password"  ng-minlength="3" required>
       </label>
-      <button type="submit" ng-disabled="registerForm.$invalid" class="button button-block button-positive">Submit</button>
       <div class="padding">
-                 <p ng-show="registerForm.email.$error.required">* Email is required</p>
-                 <p ng-show="registerForm.email.$invalid && !registerForm.email.$pristine">* Emailfield must be an email address</p>
-                 <p ng-show="registerForm.email.$error.minlength">* Email must be longer than 5 characters</p>
-                 <p ng-show="registerForm.password.$error.required">* Password is required</p>
-                 <p ng-show="registerForm.password.$error.minlength">* Password must be longer than 3 characters</p>
-     </div>
+        <p ng-show="registerForm.email.$error.required">* Email is required</p>
+        <p ng-show="registerForm.email.$invalid && !registerForm.email.$pristine">* Emailfield must be an email address</p>
+        <p ng-show="registerForm.email.$error.minlength">* Email must be longer than 5 characters</p>
+        <p ng-show="registerForm.password.$error.required">* Password is required</p>
+        <p ng-show="registerForm.password.$error.minlength">* Password must be longer than 3 characters</p>
+      </div>
+      <div class="col-50 col-offset-25">
+        <button type="submit" ng-disabled="registerForm.$invalid" class="button button-block button-assertive">
+          LET'S PLAY!
+        </button>
+      </div>
+      <p class="error" ng-model="user.error" type=text> {{login.error}}</p>
     </form>
-
   </ion-content>
 </ion-view>

@@ -1,44 +1,36 @@
 <ion-view view-title="SETTINGS" ng-controller="settingController">
-
-  <ion-content class="padding" novalidate>
-
+  <ion-content>
+    <br>
     <p class="error" ng-model="settings.error" type=text> {{settings.error}}</p>
-
-<form name="headerUpdate" ng-submit="logoutThisUser()" ng-controller="logOutController">
-    <div style="display:block; text-align:left; float:left;">
-      Update your credentials:
-    </div>
-    <div style="display:block; text-align:right;">
-      <button class="text-right ion-android-exit" type="submit" value="logout" >
-        logout
-      </button>
-    </div>
-</form>
-
-<form class="list" name="settingForm" ng-submit="updateSettingForm()" novalidate>
-    <div class="list">
-<!-- Username soll nicht geupadted werden da dieser uniq ist. <label class="item item-input item-floating-label">
-    <span class="input-label">new username: </span>
-    <input type="text" name="username" ng-model="settings.username" placeholder="Old username: {{oldUsername}}" ng-minlength="5">
-  </label>-->
-  <label class="item item-input item-floating-label">
-    <span class="input-label">new email: </span>
-    <input type="email" name="email" ng-model="settings.email" placeholder="Old email: {{oldEmail}}" ng-minlength="5" >
-  </label>
-  <label class="item item-input item-floating-label">
-    <span class="input-label">new password: </span>
-    <input type="password" name="password" ng-model="settings.password" placeholder="Old password (non hash): {{oldPassword}}" ng-minlength="3">
-  </label>
-  <button type="submit" ng-disabled="settingForm.$invalid" class="button button-block button-positive">Update!</button>
-</button>
-</label>
-</div>
-<div class="padding">
-<!--  <p ng-show="settingForm.username.$error.minlength">* username must be longer than 5 characters</p> -->
-  <p ng-show="settingForm.email.$invalid && !settingForm.email.$pristine">* Emailfield must be an email address</p>
-  <p ng-show="settingForm.email.$error.minlength">* Email must be longer than 5 characters</p>
-  <p ng-show="settingForm.password.$error.minlength">* Password must be longer than 3 characters</p>
-</div>
-</form>
+    <form class="list" name="settingForm" ng-submit="updateSettingForm()" novalidate>
+      <!-- Username soll nicht geupadted werden da dieser uniq ist. -->
+      <div class="list">
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">NEW EMAIL</span>
+          <input type="email" name="email" ng-model="settings.email" placeholder="EMAIL: {{oldEmail}}" ng-minlength="5" >
+        </label>
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">NEW PASSWORD</span>
+          <input type="password" name="password" ng-model="settings.password" placeholder="PASSWORD: {{oldPassword}}" ng-minlength="3">
+        </label>
+        <div class="padding">
+          <p ng-show="settingForm.email.$invalid && !settingForm.email.$pristine">* Emailfield must be an email address</p>
+          <p ng-show="settingForm.email.$error.minlength">* Email must be longer than 5 characters</p>
+          <p ng-show="settingForm.password.$error.minlength">* Password must be longer than 3 characters</p>
+        </div>
+        <div class="col-50 col-offset-25">
+          <button type="submit" ng-disabled="settingForm.$invalid" class="button button-block button-assertive">
+            UPDATE
+          </button>
+        </div>
+        <form name="headerUpdate" ng-submit="logoutThisUser()" ng-controller="logOutController">
+          <div class="col-50 col-offset-25">
+            <button class="button button-outline button-block button-assertive" type="submit" value="logout" >
+              LOGOUT
+            </button>
+          </div>
+        </form>
+      </div>
+    </form>
   </ion-content>
 </ion-view>

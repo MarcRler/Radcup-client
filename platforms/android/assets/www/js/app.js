@@ -43,7 +43,7 @@ angular.module('radcup', ['ionic', 'ngCordova' , 'ui.router', 'ngResource'])
   // Set up the various states which the app can be in.
   // Each state's controller can be found in controllers.js
   $ionicConfigProvider.backButton.previousTitleText(false).text('');
-  
+
   $stateProvider
     .state('landing', {
       url: '/',
@@ -98,10 +98,6 @@ angular.module('radcup', ['ionic', 'ngCordova' , 'ui.router', 'ngResource'])
       url: '/map',
       templateUrl: 'templates/map.html'
     })
-    .state('getGame', {
-      url: '/games/:id',
-      templateUrl: 'templates/game.html'
-    })
     .state('main.rules', {
       url: '/rules',
       views: {
@@ -110,8 +106,12 @@ angular.module('radcup', ['ionic', 'ngCordova' , 'ui.router', 'ngResource'])
         }
       }
     })
-    .state('gameOverview', {
+    .state('getGame', {
       url: '/games/:id',
+      templateUrl: 'templates/game.html'
+    })
+    .state('gameOverview', {
+      url: '/gamesOverview/:id',
       templateUrl: 'templates/gameOverview.html'
     });
 
