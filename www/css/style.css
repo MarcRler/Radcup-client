@@ -55,6 +55,31 @@ body{
   content: url('/img/tabbar-icons/settings.svg') !important;
 }
 
+/* Walkthrough */
+
+.slider-pager .slider-pager-page {
+  color: #EF5350;
+}
+
+.slideinfo p{
+  text-align: center;
+  color: #EF5350;
+  text-transform: uppercase;
+  line-height: 60px;
+  font-size: 160%;
+}
+
+.slide-icon {
+  margin: auto;
+  text-align: center;
+}
+
+.slide-icon img {
+  top: 55px;
+  height: 80px;
+  width: auto;
+}
+
 /* Map */
 
 #map {
@@ -120,7 +145,6 @@ body{
   height: 50px;
 }
 
-
 /* landing screen */
 .sliders {
   margin-top: 50px;
@@ -129,7 +153,9 @@ body{
 }
 
 .button-bar{
+  position: absolute;
   bottom: 0;
+  width: 100%;
 }
 
 .landing-buttons{
