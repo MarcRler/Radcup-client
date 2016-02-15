@@ -1,13 +1,14 @@
 <ion-view view-title="GAME" ng-controller="gameController">
   <ion-content>
     <div class='game-content'>
-      <div>
-        <p ng-model="time">
-          {{time.date}}
+      <div class='game-meta-information' ng-controller="gameOverviewController">
+        <br>
+        <p>
+          {{ street }}<br>
+          {{ city }}<br>
+          {{ country }}
         </p>
-        <p ng-model="address">
-          {{address}}
-        </p>
+        <hr>
         <div ng-controller="gamesController" class="gamecards item gamecards-in-game">
           <div class="left-player">
             <div><img class="players" ng-src="/img/players/red-players.png"></img></div>

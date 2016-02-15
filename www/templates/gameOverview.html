@@ -62,14 +62,16 @@
         <p>{{results.endTime}}</p>
       </label>
     </div>
-    <button class="button button-block button-positive" ng-show="game.players.one===user.username&&game.state==='startable'&&dateDate.timeNow>timeDate.meetingPoint" ng-click="updateGame(1)" id="start">
-      Start Game
-    </button>
-    <button class="button button-block button-positive" ng-show="game.players.one===user.username&&game.state==='started'" ng-disabled="game.results.winner==='No Winner'||game.results.loserCupsLeft>10||game.results.loserCupsLeft===null" ng-click="updateGame(2)" id="finish">
-      Finish Game
-    </button>
-    <p ng-show="dateDate.timeNow<timeDate.meetingPoint&&game.state==='startable'">
-      * The meetingpoint have to be reached to start the game
+    <div class="col-50 col-offset-25">
+      <button class="button button-new-game button-block button-outline button-assertive" ng-show="game.players.one===user.username&&game.state==='startable'&&dateDate.timeNow>timeDate.meetingPoint" ng-click="updateGame(1)" id="start">
+        START GAME
+      </button>
+      <button class="button button-new-game button-block button-outline button-assertive" ng-show="game.players.one===user.username&&game.state==='started'" ng-disabled="game.results.winner==='No Winner'||game.results.loserCupsLeft>10||game.results.loserCupsLeft===null" ng-click="updateGame(2)" id="finish">
+        GAME FINISHED
+      </button>
+    </div>
+    <p class="startinfo" ng-show="dateDate.timeNow<timeDate.meetingPoint&&game.state==='startable'">
+      The meetingpoint has <br> to be reached to start the game
     </p>
     <div class="game-meta-information">
       <hr>

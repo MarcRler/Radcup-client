@@ -269,3 +269,9 @@ body{
 .game-meta-information hr {
   width: 150px;
 }
+
+.startinfo {
+  text-align: center;
+  color: #EF5350;
+  font-size: 120%;
+}
