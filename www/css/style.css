@@ -227,11 +227,13 @@ body{
 
 /* game */
 .versus-in-game{
-  margin-top: 150px;
+  margin-top: 120px;
+  font-size: 22px;
+  padding-bottom: 50px;
 }
 
-.versus-in-game p {
-  background-color: #fff;
+.versus-in-game span {
+  margin: auto;
 }
 
 .gamecards-in-game{
@@ -246,6 +248,10 @@ body{
 
 .player-names{
   margin-bottom: 50px;
+}
+
+.popup {
+  border-radius: 5px;
 }
 
 /*  gameoverview */
@@ -274,4 +280,25 @@ body{
   text-align: center;
   color: #EF5350;
   font-size: 120%;
+}
+
+ /* rules */
+
+.rules {
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.rules-icon {
+  height: 50px;
+  width: 50px;
+}
+
+.item h2 {
+  color: #EF5350;
+  font-size: 20px;
+}
+
+.item p {
+  text-transform: uppercase;
 }

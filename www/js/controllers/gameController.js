@@ -43,7 +43,7 @@ angular.module('radcup').controller('gameController', function ($scope, $statePa
       $scope.game.players.three = "freeSlot";
     }else if($scope.game.players.four===window.localStorage.username){
       $scope.game.players.four = "freeSlot";
-    }        
+    }
 
     switch (position) {
       case 2:
@@ -110,8 +110,9 @@ angular.module('radcup').controller('gameController', function ($scope, $statePa
 
   $scope.showConfirm = function() {
   var confirmPopup = $ionicPopup.confirm({
-    title: 'Dem Team wirklich beitreten?',
-    template: 'Zur Zeit ist das nachträgliche wechseln nichtmehr möglich'
+    title: 'Are you sure?',
+    // template: 'Zur Zeit ist das nachträgliche wechseln nichtmehr möglich'
+    okType: 'button-assertive',
   });
 
   confirmPopup.then(function(res) {

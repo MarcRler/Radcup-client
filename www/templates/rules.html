@@ -1,45 +1,28 @@
 <ion-view view-title="RULES">
   <ion-content class='padding'>
-    <h3> benötigte Austattung:</h3>
-      <ul>
-        <li>
-          - 1x Bierpong Tisch (Biertisch etc.)
-        </li>
-        <li>
-          - 2x 6 Redcup Becher
-        </li>
-        <li>
-          - 2x Becher mit Wasser
-        </li>
-        <li>
-          - 2x Tischtennisbälle
-        </li>
-      </ul>
-      <h3>Spielaufbau/ablauf:</h3>
-      <p>
-        Pro Runde 2 Würfe. Ausnahmen bilden die Sonderegeln ab.Im kompletten Spielverlauf darf jedes Team 1x die Becher neu anordnen. Hat das Verlierer-Team das Spiel nicht begonnen darf es eine Runde “nachwerfen”. Das restliche Bier auf dem Tisch muss vom Verlierer-Team
-        getrunken werden.
-      </p>
-      <h3>Sonderregeln: </h3>
-      <ul>
-        <li>
-          - Treffen beide Spieler in einer Runde dürfen Sie erneut werfen: “Ballsback”-Regel
-        </li>
-        <li>
-          - Treffen beide Spieler in einer Runde in den selben Becher dürfen Sie 3 Becher welche ausgetrunken werden müssen wählen. Zusätzlich gilt die Ballsback-Regel.
-        </li>
-        <li>
-          - Dreht sich ein Ball in einem Becher darf dieser weder durch pusten oder fingern abgewehrt werden.
-        </li>
-        <li>
-          - Aufsetzter zählen nicht doppelt, dürfen allerdings abgewehrt werden.
-        </li>
-        <li>
-          - Trifft ein Spieler 3 Runden nacheinander einen Becher ist er “ON-FIRE”. Er darf nun solange werfen bis er nicht mehr trifft.
-        </li>
-        <li>
-          - Deathcup Regel: Hält ein Spieler während des Spielverlaufs einen Becher in der Hand und ein gegnerischer Spieler trifft diesen Becher gewinnt das Team welches den Becher getroffen hat, das komplette Spiel egal wieviele Becher noch offen sind.
-        </li>
-      </ul>
+    <div class="card">
+      <div class="item rules">
+        <img class="rules-icon" src="/img/rules/general.svg" alt="general-icon" />
+        <br>
+        <h2>GAME BASICS</h2>
+      </div>
+      <div class="item item-text-wrap" ng-include src="'/templates/rules/general.html'"></div>
+    </div>
+    <div class="card">
+      <div class="item rules">
+        <img class="rules-icon" src="/img/rules/process.svg" alt="process-icon" />
+        <br>
+        <h2>GAME PROCESS</h2>
+      </div>
+      <div class="item item-text-wrap" ng-include src="'/templates/rules/process.html'"></div>
+    </div>
+    <div class="card">
+      <div class="item rules">
+        <img class="rules-icon" src="/img/rules/special.svg" alt="special-icon" />
+        <br>
+        <h2>SPECIAL RULES</h2>
+      </div>
+      <div class="item item-text-wrap" ng-include src="'/templates/rules/special.html'"></div>
+    </div>
   </ion-content>
 </ion-view>
