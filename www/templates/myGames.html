@@ -1,7 +1,10 @@
 <ion-view view-title="MY GAMES" ng-controller="myGamesController">
-  <ion-content>
+  <ion-content ng-controller="gamesController">
     <div class="card gamecards" ng-repeat="game in games">
-      <div ng-controller="gamesController" class="item item-text-wrap item-divider">
+      <div class="item game-status" ng-show="game.state!=undefined">
+        {{ game.state }}
+      </div>
+      <div class="item item-text-wrap item-divider">
         <div class="left-player">
           <div><img class="players" ng-src="/img/players/red-players.png"></img></div>
           <br>
@@ -28,9 +31,6 @@
       </div>
       <div class="item">
         {{ game.desc }}
-      </div>
-      <div class="item" ng-show="game.state!=undefined">
-        {{ game.state }}
       </div>
       <div class="join-game item">
         <a ui-sref='gameOverview({id:game._id})'  class="button button-outline button-light">
