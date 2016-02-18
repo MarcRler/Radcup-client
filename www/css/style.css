@@ -183,6 +183,7 @@ body{
 
 .item p:last-child {
   text-align: center;
+  background-color:inherit;
 }
 
 .description {
@@ -232,6 +233,7 @@ body{
 }
 
 /* game */
+
 .versus-in-game{
   margin-top: 120px;
   padding-bottom: 50px;

@@ -13,9 +13,7 @@
         <br>
         <span class="player-names">{{ game.players.three }}</span>
         <br>
-        <button class="button button-small button-outline button-balanced button-join" ng-if="game.players.three === 'freeSlot'" ng-click="join(3)">
-          JOIN TEAM
-        </button>
+        <radcup-join-button balanced="true" ng-if="game.players.three === 'freeSlot'" ng-click="join(3)"></radcup-join-team>
       </div>
       <div class="versus versus-in-game">
         <p>VS</p>
@@ -25,18 +23,14 @@
         <br>
         <span class="player-names">{{ game.players.two }}</span>
         <br>
-        <button class="button button-small button-outline button-assertive button-join" ng-if="game.players.two === 'freeSlot'" ng-click="join(2)">
-          JOIN TEAM
-        </button>
+        <radcup-join-button assertive="true" ng-if="game.players.two === 'freeSlot'" ng-click="join(2)"></radcup-join-team>
       </div>
       <div class="right-player">
         <div><img class="players" ng-src="/img/players/{{ getIcons(game.players.four, 'green') }}.png"></img></div>
         <br>
         <span class="player-names">{{ game.players.four }}</span>
         <br>
-        <button class="button button-small button-outline button-balanced button-join" ng-if="game.players.four === 'freeSlot'" ng-click="join(4)">
-          JOIN TEAM
-        </button>
+        <radcup-join-button balanced="true" ng-if="game.players.four === 'freeSlot'" ng-click="join(4)"></radcup-join-team>
       </div>
     </div>
     <br>
