@@ -183,7 +183,7 @@ body{
 
 .item p:last-child {
   text-align: center;
-  background-color:inherit;
+  background-color: inherit;
 }
 
 .description {
