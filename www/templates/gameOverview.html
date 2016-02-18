@@ -1,18 +1,6 @@
 <ion-view view-title="GAME" ng-controller="gameOverviewController">
   <ion-content>
-    <div class='game-meta-information'>
-      <br>
-      <p>
-        {{ street }}<br>
-        {{ city }}<br>
-        {{ country }}
-      </p>
-      <hr>
-      <p>
-        {{ date }}<br>
-        {{ daytime }}
-      </p>
-    </div>
+    <radcup-location></radcup-location>
     <div ng-controller="gamesController" class="gamecards item item-gameoverview">
       <div class="left-player">
         <div>
@@ -93,19 +81,17 @@
       The meetingpoint has <br> to be reached to start the game
     </p>
     <radcup-description game="game"></radcup-description>
-    <div class="col-50 col-offset-25">
-      <button class="button button-new-game button-block button-outline button-assertive"
-          ng-show="game.players.one===user.username&&game.state==='startable'&&dateDate.timeNow>timeDate.meetingPoint"
-          ng-click="updateGame(1)"
-          id="start">
-        START GAME
-      </button>
-      <button class="button button-new-game button-block button-outline button-assertive"
-          ng-show="game.players.one===user.username&&game.state==='started'"
-          ng-disabled="game.results.winner==='No Winner'||game.results.loserCupsLeft>10||game.results.loserCupsLeft===null"
-          ng-click="updateGame(2)" id="finish">
-        GAME FINISHED
-      </button>
-    </div>
+    <radcup-button outline="true"
+        ng-show="game.players.one===user.username&&game.state==='startable'&&dateDate.timeNow>timeDate.meetingPoint"
+        ng-click="updateGame(1)"
+        id="start">
+      START GAME
+    </radcup-button>
+    <radcup-button outline="true"
+        ng-show="game.players.one===user.username&&game.state==='started'"
+        ng-disabled="game.results.winner==='No Winner'||game.results.loserCupsLeft>10||game.results.loserCupsLeft===null"
+        ng-click="updateGame(2)" id="finish">
+      GAME FINISHED
+    </radcup-button>
   </ion-content>
 </ion-view>

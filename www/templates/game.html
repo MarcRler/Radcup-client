@@ -1,18 +1,6 @@
 <ion-view view-title="GAME" ng-controller="gameController">
   <ion-content>
-    <div class='game-meta-information' ng-controller="gameOverviewController">
-      <br>
-      <p>
-        {{ street }}<br>
-        {{ city }}<br>
-        {{ country }}
-      </p>
-      <hr>
-      <p>
-        {{ date }}<br>
-        {{ daytime }}
-      </p>
-    </div>
+    <radcup-location></radcup-location>
     <div ng-controller="gamesController" class="gamecards item gamecards-in-game">
       <div class="left-player">
         <div><img class="players" ng-src="/img/players/red-players.png"></img></div>
