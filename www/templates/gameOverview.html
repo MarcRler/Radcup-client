@@ -89,28 +89,10 @@
         <p>{{ results.endTime }}</p>
       </label>
     </div>
-
-    <!-- <div class="list" ng-show="game.state==='started'||game.state==='finished'"> -->
-      <!-- <label class="item item-input">
-        <span class="input-label">Cups left</span>
-        <input type="number" ng-disabled="game.state!='started'||game.players.one!=user.username" ng-model="game.results.loserCupsLeft">
-      </label>
-      <label class="item">
-          <span class="input-label">StartTime</span>
-        <p>{{results.startTime}}</p>
-      </label>
-      <label class="item">
-          <span class="input-label">Endtime</span>
-        <p>{{results.endTime}}</p>
-      </label> -->
-    <!-- </div> -->
     <p class="startinfo" ng-show="dateDate.timeNow<timeDate.meetingPoint&&game.state==='startable'">
       The meetingpoint has <br> to be reached to start the game
     </p>
-    <div class="description game-meta-information">
-      <hr>
-      <p>{{ game.desc }}</p>
-    </div>
+    <radcup-description game="game"></radcup-description>
     <div class="col-50 col-offset-25">
       <button class="button button-new-game button-block button-outline button-assertive"
           ng-show="game.players.one===user.username&&game.state==='startable'&&dateDate.timeNow>timeDate.meetingPoint"

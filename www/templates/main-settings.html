@@ -18,12 +18,14 @@
           <p ng-show="settingForm.email.$error.minlength">* Email must be longer than 5 characters</p>
           <p ng-show="settingForm.password.$error.minlength">* Password must be longer than 3 characters</p>
         </div>
-        <div class="col-50 col-offset-25">
+        <radcup-button type="submit" ng-disabled="settingForm.$invalid">UPDATE</radcup-button>
+        <!-- <div class="col-50 col-offset-25">
           <button type="submit" ng-disabled="settingForm.$invalid" class="button button-block button-assertive">
             UPDATE
           </button>
-        </div>
+        </div> -->
         <form name="headerUpdate" ng-submit="logoutThisUser()" ng-controller="logOutController">
+          <!-- <radcup-button type="submit" value="logout">LOGOUT</radcup-button> -->
           <div class="col-50 col-offset-25">
             <button class="button button-outline button-block button-assertive" type="submit" value="logout" >
               LOGOUT
