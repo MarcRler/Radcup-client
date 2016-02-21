@@ -1,11 +1,10 @@
 <ion-view view-title="GAMES" ng-controller="gamesController">
   <ion-content class="padding">
-    <a class="button button-new-game button-block button-outline button-assertive" href="#/newGame">
-      NEW GAME
-    </a>
+    <a class="button button-new-game button-block button-outline button-assertive" href="#/newGame">NEW GAME</a>
     <div class="card gamecards" ng-repeat="game in games" ng-show="game.state===undefined">
       <div class="item item-text-wrap item-divider">
-        <div class="left-player">
+        <radcup-players></radcup-players>
+        <!-- <div class="left-player">
           <div><img class="players" ng-src="/img/players/red-players.png"></img></div>
           <br>
           <span>{{ game.players.one }}</span>
@@ -27,11 +26,10 @@
           <div><img class="players" ng-src="/img/players/{{ getIcons(game.players.four, 'green') }}.png"></img></div>
           <br>
           <span>{{ game.players.four }}</span>
-        </div>
+        </div> -->
       </div>
-      <div ng-controller="gameOverviewController" class="item item-text-wrap description">
+      <div class="item item-text-wrap description">
         {{ game.desc }}
-        {{ time }}
       </div>
       <div class="join-game item">
         <a ui-sref='getGame({id:game._id})' class="button button-outline button-light">JOIN GAME</a>

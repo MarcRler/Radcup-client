@@ -1,8 +1,9 @@
 <ion-view view-title="GAME" ng-controller="gameOverviewController">
   <ion-content>
-    <radcup-location></radcup-location>
+    <radcup-location street="street"></radcup-location>
     <div ng-controller="gamesController" class="gamecards item item-gameoverview">
-      <div class="left-player">
+      <radcup-players></radcup-players>
+      <!-- <div class="left-player">
         <div>
           <img class="players" ng-src="/img/players/red-players.png"/>
         </div>
@@ -32,9 +33,8 @@
         </div>
         <br>
         <span>{{ game.players.four }}</span>
-      </div>
+      </div> -->
     </div>
-
     <div class='inputs game-meta-information gameoverview-meta-information' ng-show="game.state==='started'||game.state==='finished'">
       <p>WINNER</p>
       <br>
