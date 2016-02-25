@@ -1,10 +1,10 @@
 angular.module('radcup').controller('gameOverviewController', function($scope, gamesService, $stateParams, $state) {
 
-
+  //Der Backbutton wird manuell hinzugefügt
   $scope.$on('$ionicView.beforeEnter', function(event, viewData) {
     viewData.enableBack = true;
   });
-
+  //Variablen für die View werden initialisiert
   $scope.$on('$ionicView.enter', function() {
 
     var date = new Date();
@@ -18,7 +18,7 @@ angular.module('radcup').controller('gameOverviewController', function($scope, g
     $scope.loadGame();
   });
 
-
+  //Das Spiel, auf das geklickt wurde, wird geladen
   $scope.loadGame = function() {
     var game = gamesService.allGames().get({
       id: $stateParams.id
@@ -43,11 +43,13 @@ angular.module('radcup').controller('gameOverviewController', function($scope, g
     });
   };
 
+  //Zeit und Datum werden getrennt
   splitTime = function (time) {
     $scope.date = time.split(/\s/g)[0];
     $scope.daytime = time.split(/\s/g)[1];
   }
 
+  //Der Spielestatus wird aktualisiert
   $scope.updateGame = function(param) {
 
     if (param === 1) {
@@ -69,7 +71,7 @@ angular.module('radcup').controller('gameOverviewController', function($scope, g
       }
     });
   };
-
+  //Die Adresse wird über den Geocoder geladen
   setAddress = function() {
 
     var geocoder = new google.maps.Geocoder();
@@ -85,13 +87,13 @@ angular.module('radcup').controller('gameOverviewController', function($scope, g
       }
     });
   }
-
+  //Die Adresse wird in ihre Bestandteile zerlegt
   splitAddress = function (address) {
     $scope.street = address.split(/,/g)[0];
     $scope.city = address.split(/,/g)[1];
     $scope.country = address.split(/,/g)[2];
   };
-
+  //Die Zeit in Millisekunden wird formatiert
   setTimeForGame = function(time) {
 
     var date = new Date(time);
