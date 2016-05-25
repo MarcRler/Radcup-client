@@ -23,11 +23,7 @@
        <p ng-show="registerForm.password.$error.required">* Password is required</p>
        <p ng-show="registerForm.password.$error.minlength">* Password must be longer than 3 characters</p>
      </div>
-     <div class="col-50 col-offset-25">
-       <button type="submit" ng-disabled="registerForm.$invalid" class="button button-block button-assertive">
-         SIGN ME UP!
-       </button>
-     </div>
+     <radcup-button type="submit" ng-disabled="registerForm.$invalid">SIGN ME UP!</radcup-button>
      <p class="error" ng-model="user.error" type=text> {{user.error}}</p>
     </form>
   </ion-content>

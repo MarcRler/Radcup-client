@@ -19,4 +19,6 @@ angular.module('radcup').controller('gamesController', function($scope, gamesSer
       return 'free-slot';
     };
   };
+
+  
 });

@@ -40,19 +40,19 @@ body{
 
 /* tabbar */
 .ion-ios-game-controller-b:before{
-  content: url('/img/tabbar-icons/all-games.svg') !important;
+  content: url('../img/tabbar-icons/all-games.svg') !important;
 }
 
 .ion-beer:before{
-  content: url('/img/tabbar-icons/my-games.svg') !important;
+  content: url('../img/tabbar-icons/my-games.svg') !important;
 }
 
 .ion-star:before{
-  content: url('/img/tabbar-icons/rules.svg') !important;
+  content: url('../img/tabbar-icons/rules.svg') !important;
 }
 
 .ion-settings:before{
-  content: url('/img/tabbar-icons/settings.svg') !important;
+  content: url('../img/tabbar-icons/settings.svg') !important;
 }
 
 /* Walkthrough */
@@ -125,7 +125,7 @@ body{
 /* header */
 
 .header-item{
-  background-image: url('/img/tabbar-icons/band.svg');
+  background-image: url('../img/tabbar-icons/band.svg');
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -168,15 +168,15 @@ body{
 }
 
 .login-button{
-  content: url('/img/landing-icons/login.svg');
+  content: url('../img/landing-icons/login.svg');
 }
 
 .register-button{
-  content: url('/img/landing-icons/register.svg');
+  content: url('../img/landing-icons/register.svg');
 }
 
 .explore-button{
-  content: url('/img/landing-icons/explore.svg');
+  content: url('../img/landing-icons/explore.svg');
 }
 
 /* main-Games */
@@ -357,4 +357,13 @@ body{
 
 .item p {
   text-transform: uppercase;
+}
+
+.platform-ios.platform-cordova:not(.fullscreen) .bar-header:not(.bar-subheader) > * {
+    margin-top: 0;
+}
+
+.header-item{
+text-align: center !important;
+
 }

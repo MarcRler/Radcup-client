@@ -40,19 +40,44 @@ body{
 
 /* tabbar */
 .ion-ios-game-controller-b:before{
-  content: url('/img/tabbar-icons/all-games.svg') !important;
+  content: url('../img/tabbar-icons/all-games.svg') !important;
 }
 
 .ion-beer:before{
-  content: url('/img/tabbar-icons/my-games.svg') !important;
+  content: url('../img/tabbar-icons/my-games.svg') !important;
 }
 
 .ion-star:before{
-  content: url('/img/tabbar-icons/rules.svg') !important;
+  content: url('../img/tabbar-icons/rules.svg') !important;
 }
 
 .ion-settings:before{
-  content: url('/img/tabbar-icons/settings.svg') !important;
+  content: url('../img/tabbar-icons/settings.svg') !important;
+}
+
+/* Walkthrough */
+
+.slider-pager .slider-pager-page {
+  color: #EF5350;
+}
+
+.slideinfo p{
+  text-align: center;
+  color: #EF5350;
+  text-transform: uppercase;
+  line-height: 60px;
+  font-size: 160%;
+}
+
+.slide-icon {
+  margin: auto;
+  text-align: center;
+}
+
+.slide-icon img {
+  top: 55px;
+  height: 80px;
+  width: auto;
 }
 
 /* Map */
@@ -97,14 +122,10 @@ body{
   width: 100%;
 }
 
-.game-content{
-  text-align: center;
-  margin: auto;
-}
-
 /* header */
+
 .header-item{
-  background-image: url('/img/tabbar-icons/band.svg');
+  background-image: url('../img/tabbar-icons/band.svg');
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -120,8 +141,8 @@ body{
   height: 50px;
 }
 
-
 /* landing screen */
+
 .sliders {
   margin-top: 50px;
   height: 80%;
@@ -129,7 +150,9 @@ body{
 }
 
 .button-bar{
+  position: absolute;
   bottom: 0;
+  width: 100%;
 }
 
 .landing-buttons{
@@ -145,18 +168,28 @@ body{
 }
 
 .login-button{
-  content: url('/img/landing-icons/login.svg');
+  content: url('../img/landing-icons/login.svg');
 }
 
 .register-button{
-  content: url('/img/landing-icons/register.svg');
+  content: url('../img/landing-icons/register.svg');
 }
 
 .explore-button{
-  content: url('/img/landing-icons/explore.svg');
+  content: url('../img/landing-icons/explore.svg');
 }
 
 /* main-Games */
+
+.item p:last-child {
+  text-align: center;
+  background-color: inherit;
+}
+
+.description {
+  text-transform: uppercase;
+  font-size: 15px;
+}
 
 /* players */
 
@@ -200,8 +233,10 @@ body{
 }
 
 /* game */
+
 .versus-in-game{
-  margin-top: 150px;
+  margin-top: 120px;
+  padding-bottom: 50px;
 }
 
 .versus-in-game p {
@@ -222,6 +257,10 @@ body{
   margin-bottom: 50px;
 }
 
+.popup {
+  border-radius: 5px;
+}
+
 /*  gameoverview */
 
 .item-gameoverview{
@@ -236,10 +275,95 @@ body{
   width: 150px;
 }
 
+.versus-in-gameoverview {
+  margin-top: 80px;
+  padding: 30px;
+}
+
 .versus-in-gameoverview p{
   background-color: #fff;
 }
 
 .game-meta-information hr {
   width: 150px;
+}
+
+.startinfo {
+  text-align: center;
+  color: #EF5350;
+  font-size: 120%;
+}
+
+.game-status {
+  font-size: 17px;
+  text-transform: uppercase;
+  color: #EF5350;
+}
+
+.gameoverview-meta-information .item {
+  display: inline-block;
+  width: 31%;
+}
+
+.gameoverview-meta-information p {
+  font-size: 20px;
+}
+
+.game-meta-information .radio-content {
+  width: 100%;
+}
+
+.game-meta-information .radio-content .item-content {
+  padding: 28px 0 0 0;
+  width: 100%;
+}
+
+.checkbox-winner div {
+  text-align: center;
+  display: inline-block;
+}
+
+.item-radio input:checked + .radio-content .item-content {
+  background: #fff;
+}
+
+.item-radio .radio-icon {
+  padding-top: 5px;
+  font-size: 30px;
+  left: 0;
+}
+
+.item-input {
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+
+ /* rules */
+
+.rules {
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.rules-icon {
+  height: 50px;
+  width: 50px;
+}
+
+.item h2 {
+  color: #EF5350;
+  font-size: 20px;
+}
+
+.item p {
+  text-transform: uppercase;
+}
+
+.platform-ios.platform-cordova:not(.fullscreen) .bar-header:not(.bar-subheader) > * {
+    margin-top: 0;
+}
+
+.header-item{
+text-align: center !important;
+
 }

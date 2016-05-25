@@ -139,5 +139,8 @@
                 "Connection"
             ]
         }
-    ]
+    ],
+    "plugin_metadata": {
+        "cordova-plugin-network-information": "1.2.1"
+    }
 }

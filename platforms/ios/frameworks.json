@@ -1,4 +1,5 @@
 {
     "CoreLocation.framework": 2,
-    "SystemConfiguration.framework": 1
+    "SystemConfiguration.framework": 2,
+    "CoreTelephony.framework": 1
 }
