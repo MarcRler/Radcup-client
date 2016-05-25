@@ -20,7 +20,7 @@ angular.module('radcup').controller('mapController', function($scope, locationSe
       position: position,
       map: map,
       title: 'Your Position!',
-      icon: '/img/location-icons/my-location.svg'
+      icon: './img/location-icons/my-location.svg'
     });
     //neuen click Listener anlegen wird für addMarker benötigt
     map.addListener('click', function(event) {
@@ -35,7 +35,7 @@ angular.module('radcup').controller('mapController', function($scope, locationSe
       var marker = new google.maps.Marker({
         position: location,
         map: map,
-        icon: '/img/location-icons/set-gamelocation.svg'
+        icon: './img/location-icons/set-gamelocation.svg'
       });
       markers.push(marker);
     }
