@@ -4,6 +4,6 @@ angular.module('radcup').directive('radcupDescription', function () {
     scope: {
       game: '='
     },
-    templateUrl: '/templates/partials/radcup-description.html'
+    templateUrl: './templates/partials/radcup-description.html'
   };
 });

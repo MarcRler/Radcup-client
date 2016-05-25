@@ -5,6 +5,6 @@ angular.module('radcup').directive('radcupButton', function () {
     scope: {
       outline: '='
     },
-    templateUrl: '/templates/partials/radcup-button.html'
+    templateUrl: './templates/partials/radcup-button.html'
     }
 });

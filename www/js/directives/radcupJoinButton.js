@@ -5,6 +5,6 @@ angular.module('radcup').directive('radcupJoinButton', function () {
       assertive: '=',
       balanced: '='
     },
-    templateUrl: '/templates/partials/radcup-join-button.html'
+    templateUrl: './templates/partials/radcup-join-button.html'
   };
 });
