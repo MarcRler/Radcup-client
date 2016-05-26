@@ -7,11 +7,11 @@
       <div class="list">
         <label class="item item-input item-stacked-label">
           <span class="input-label">NEW EMAIL</span>
-          <input type="email" name="email" ng-model="settings.email" placeholder="EMAIL: {{oldEmail}}" ng-minlength="5" >
+          <input type="email" name="email" ng-model="settings.email" placeholder="old EMAIL was {{oldEmail}}, please type in a new one" ng-minlength="5" >
         </label>
         <label class="item item-input item-stacked-label">
           <span class="input-label">NEW PASSWORD</span>
-          <input type="password" name="password" ng-model="settings.password" placeholder="PASSWORD: {{oldPassword}}" ng-minlength="3">
+          <input type="password" name="password" ng-model="settings.password" placeholder="old Password, please type in a new one" ng-minlength="3">
         </label>
         <div class="padding">
           <p ng-show="settingForm.email.$invalid && !settingForm.email.$pristine">* Emailfield must be an email address</p>
@@ -19,10 +19,11 @@
           <p ng-show="settingForm.password.$error.minlength">* Password must be longer than 3 characters</p>
         </div>
         <radcup-button type="submit" ng-disabled="settingForm.$invalid">UPDATE</radcup-button>
+    </form>
         <form name="headerUpdate" ng-submit="logoutThisUser()" ng-controller="logOutController">
           <radcup-button type="submit" value="logout" outline="true">LOGOUT</radcup-button>
         </form>
       </div>
-    </form>
+
   </ion-content>
 </ion-view>
