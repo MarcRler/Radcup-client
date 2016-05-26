@@ -1,11 +1,18 @@
 angular.module('radcup').service('gamesService', function($q, $http, $httpParamSerializerJQLike, $resource) {
 
+  var newGame = null;
+
+
+  this.statistics = function(){
+    return $resource('http://127.0.0.1:3000/api/statistics')
+  }
+
 /* allGames function, wird genutzt um via PUT und $resoucrce ein vorhandes Spiel upzudaten
 PUT dient in diesem Fall auch als POST/GET -> liefert einen promise zurück
 Siehe auch ng-resource Dokumentation
 */
   this.allGames = function () {
-    return $resource('http://haagim.net/nodejs/api/games/:id', { id: '@_id' }, {
+    return $resource('http://127.0.0.1:3000/api/games/:id', { id: '@_id' }, {
       update: {
         method: 'PUT'
       }
@@ -16,20 +23,20 @@ Siehe auch ng-resource Dokumentation
 werden kann
 */
   this.joinableGames = function () {
-    return $resource('http://haagim.net/nodejs/api/joinableGames');
+    return $resource('http://127.0.0.1:3000/api/joinableGames');
   };
 
 /* joinedGames function, liefert alle Spiele zurück in denen der User bereits
 eingetragen ist. Egal ob von im erstellt oder ob er beigetreten ist.
 */
   this.joinedGames = function() {
-    return $resource('http://haagim.net/nodejs/api/myGames');
+    return $resource('http://127.0.0.1:3000/api/myGames');
   };
-  var newGame = null;
 
 /* setGame function, liefert ein neues Spiel Object zurück welches in der createNewGame
 function genutzt wird.
 */
+
   this.setGame = function(game) {
 
     this.newGame = game;
@@ -49,7 +56,7 @@ Datenbank zu perstieren. */
     console.log(this.newGame);
 
     return $q(function(resolve, reject) {
-      $http.post('http://haagim.net/nodejs/api/games', self.newGame)
+      $http.post('http://127.0.0.1:3000/api/games', self.newGame)
       .then(function(data) {
           console.log(data);
           resolve();
