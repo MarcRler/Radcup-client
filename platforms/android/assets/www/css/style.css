@@ -367,3 +367,13 @@ body{
 text-align: center !important;
 
 }
+
+.overlay{
+
+    position: fixed;
+    top: 70px;
+    left: 10px;
+    background-color: white;
+    padding: 10px;
+    border-radius: 7px;
+}

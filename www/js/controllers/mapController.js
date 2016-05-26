@@ -1,9 +1,10 @@
 angular.module('radcup').controller('mapController', function($scope, locationService, $location, gamesService,$state) {
   /* mapController dient als Bindeglied zwischen der map view und
   der location.getPosition function. */
+  $scope.show={};
+  $scope.isVisible=false;
   var button = document.getElementById('startMapButton');
   button.style.visibility = 'hidden';
-
   var chosenPosition = null;
   // position abrufen
   locationService.getPosition().then(function(position) {
@@ -13,7 +14,7 @@ angular.module('radcup').controller('mapController', function($scope, locationSe
     var map = new google.maps.Map(document.getElementById('map'), {
       center: position,
       scrollwheel: false,
-      zoom: 14
+      zoom: 17
     });
     //neuen Marker mit eigener Position auf Map anlegen
     var marker = new google.maps.Marker({
@@ -25,20 +26,29 @@ angular.module('radcup').controller('mapController', function($scope, locationSe
     //neuen click Listener anlegen wird für addMarker benötigt
     map.addListener('click', function(event) {
       clearMarkers();
+      $scope.isVisible=true;
+      var divSel =   document.getElementById('overlay');
+      divSel.style.top=event.pixel.y+10+"px";
+      divSel.style.left=event.pixel.x-25+"px";
       button.style.visibility = 'visible';
       chosenPosition = event.latLng;
+
+      setStreetFromClick();
       console.log(chosenPosition);
       addMarker(chosenPosition);
     });
    // Marker auf Map nach Click setzen (blaue Fahne)
     function addMarker(location) {
+
       var marker = new google.maps.Marker({
         position: location,
         map: map,
         icon: './img/location-icons/set-gamelocation.svg'
       });
+
       markers.push(marker);
     }
+
    //rendert Map
     function setMapOnAll(map) {
       for (var i = 0; i < markers.length; i++) {
@@ -66,4 +76,19 @@ angular.module('radcup').controller('mapController', function($scope, locationSe
       }
     });
   }
+  setStreetFromClick = function() {
+    var geocoder = new google.maps.Geocoder();
+    var location = new google.maps.LatLng(chosenPosition.lat(), chosenPosition.lng());
+    geocoder.geocode({
+      'latLng': location
+    }, function(results, status) {
+      if (status == google.maps.GeocoderStatus.OK) {
+        var add = results[0].formatted_address;
+        $scope.$apply(function(){
+          $scope.show=add;
+        });
+      }
+    });
+  }
+
 });
