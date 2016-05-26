@@ -5,8 +5,7 @@ $scope.logout = {};
     $scope.logoutThisUser = function() {
       if(userService.logout()){
           // wenn logout erfolgreich war, leite weiter auf login
-          $window.location = '#/login';
-          $window.location.reload();
+          $window.location = '#/landing';
       } else{
         console.log('unknown error occured: ');
       }
