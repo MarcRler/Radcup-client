@@ -7,16 +7,22 @@
         "files": {}
     },
     "installed_plugins": {
-        "cordova-plugin-geolocation": {
-            "PACKAGE_NAME": "com.ionicframework.starter"
-        },
-        "cordova-plugin-device": {
+        "cordova-plugin-compat": {
             "PACKAGE_NAME": "com.ionicframework.starter"
         },
         "cordova-plugin-console": {
             "PACKAGE_NAME": "com.ionicframework.starter"
         },
-        "cordova-plugin-whitelist": {
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.ionicframework.starter"
+        },
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "com.ionicframework.starter"
+        },
+        "cordova-plugin-geolocation": {
+            "PACKAGE_NAME": "com.ionicframework.starter"
+        },
+        "cordova-plugin-network-information": {
             "PACKAGE_NAME": "com.ionicframework.starter"
         },
         "cordova-plugin-splashscreen": {
@@ -25,10 +31,10 @@
         "cordova-plugin-statusbar": {
             "PACKAGE_NAME": "com.ionicframework.starter"
         },
-        "ionic-plugin-keyboard": {
+        "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "com.ionicframework.starter"
         },
-        "cordova-plugin-network-information": {
+        "ionic-plugin-keyboard": {
             "PACKAGE_NAME": "com.ionicframework.starter"
         }
     },

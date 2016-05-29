@@ -18,4 +18,17 @@ angular.module('radcup').controller('newGameController', function($scope, $http,
     console.log(newGame);
     gamesService.setGame(newGame);
   }
+
+  $scope.initializeGameNow = function() {
+    var newGame2 = {
+      desc: $scope.game.desc+' play now game',
+      time: new Date(),
+      lat: null,
+      lng: null
+    }
+    console.log(newGame2);
+    gamesService.setGame(newGame2);
+
+
+  }
 });
