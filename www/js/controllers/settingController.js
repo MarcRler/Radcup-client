@@ -6,7 +6,14 @@ $scope.oldEmail=window.localStorage['email'];
 $scope.oldPassword=window.localStorage['password'];
   $scope.settings = {};
   $scope.updateSettingForm= function() {
-    userService.update($scope.settings)
+
+    var newUpdate = {
+      email: $scope.settings.email,
+      password: $scope.settings.password,
+
+    }
+    console.log("rufe service"+newUpdate);
+    userService.update(newUpdate)
     .then(
       function (data) {
           if(userService.logout()) {

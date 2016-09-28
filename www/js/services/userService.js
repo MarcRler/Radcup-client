@@ -113,15 +113,29 @@ Wenn es funktioniert hat wird ein True geliefert.
 oder password ändern zu können.
 */
   this.update = function(settings){
-    console.log(settings);
+    console.log("hui settings mail"+settings.email);
+    console.log("hui settings pw"+settings.password);
+    console.log("hui settings pw"+settings.username);
+
+
     $http.defaults.headers.post["Content-Type"] = "application/json";
   return $q(function(resolve, reject){
     var uemail=''; //updated email
     var uuname=''; //updated username -> username ist uniq darf nicht mehr geupdated werden. wird in view nicht angeboten.
     var upassword=''; //updated password
+    console.log("1:"+uemail);
+    console.log("settings.email :"+settings.email);
+
+    console.log("2:"+uuname);
+    console.log("settings.username :"+settings.username);
+
+    console.log("3:"+upassword);
+    console.log("settings.password :"+settings.password);
+
+
     /*prüfe ob credentials im lokal storage dem entsprechen was mit geliefert wurde oder leer war,
     wenn ja gibt es nichts zum updaten und nutze die informationen aus dem local storage für PUT - es wird also mit bereits bekannten daten geupdated  */
-     if(settings.email===window.localStorage['email'] || settings.email===undefined){
+     if(settings.email===window.localStorage['email'] || settings.email===undefined || settings.email===''){
        uemail=window.localStorage['email'];
      } else {
        uemail=settings.email;
@@ -131,7 +145,7 @@ oder password ändern zu können.
      } else {
        uuname=settings.username;
      }
-     if(settings.password===window.localStorage['password'] || settings.password===undefined){
+     if(settings.password===window.localStorage['password'] || settings.password===undefined|| settings.password==='' ){
        upassword=window.localStorage['password'];
      } else {
        upassword=settings.password;
