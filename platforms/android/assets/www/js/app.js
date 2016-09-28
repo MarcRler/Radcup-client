@@ -106,6 +106,14 @@ angular.module('radcup', ['ionic', 'ngCordova' , 'ui.router', 'ngResource'])
         }
       }
     })
+    .state('main.statistics', {
+      url: '/statistics',
+      views: {
+        'main-statistics': {
+          templateUrl: 'templates/main-statistics.html'
+        }
+      }
+    })
     .state('getGame', {
       url: '/games/:id',
       templateUrl: 'templates/game.html'
