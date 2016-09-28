@@ -1,14 +1,20 @@
 <ion-view view-title="STATS" ng-controller="statisticsController">
-  <ion-content>
-    <p>
-    {{won}}
-    </p>
-    <p>
-    {{lost}}
-    </p>
-    <p>
-    {{draw}}
-    </p>
-
-  </ion-content>
+    <ion-content>
+        <br/>
+        <div class="card">
+            <div class="item item-text-wrap">
+                Won: {{won}}
+            </div>
+        </div>
+        <div class="card">
+            <div class="item item-text-wrap">
+                Lost: {{lost}}
+            </div>
+        </div>
+        <div class="card">
+            <div class="item item-text-wrap">
+                Draw: {{draw}}
+            </div>
+        </div>
+    </ion-content>
 </ion-view>
