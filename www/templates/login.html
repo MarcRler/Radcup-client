@@ -1,7 +1,7 @@
 <ion-view view-title="LOGIN" ng-controller="loginController">
   <ion-content>
     <br>
-    <form class='list' name="registerForm" ng-submit="submitLoginForm()" novalidate>
+    <form class='list' name="loginForm" ng-submit="submitLoginForm()" novalidate>
       <label class="item item-input item-stacked-label">
         <span class="input-label">EMAIL</span>
         <input type="email" name="email" ng-model="login.email" ng-minlength="5" required>
@@ -11,13 +11,13 @@
         <input type="password" name="password" ng-model="login.password"  ng-minlength="3" required>
       </label>
       <div class="padding">
-        <p ng-show="registerForm.email.$error.required">* Email is required</p>
-        <p ng-show="registerForm.email.$invalid && !registerForm.email.$pristine">* Emailfield must be an email address</p>
-        <p ng-show="registerForm.email.$error.minlength">* Email must be longer than 5 characters</p>
-        <p ng-show="registerForm.password.$error.required">* Password is required</p>
-        <p ng-show="registerForm.password.$error.minlength">* Password must be longer than 3 characters</p>
+        <p ng-show="loginForm.email.$error.required">* Email is required</p>
+        <p ng-show="loginForm.email.$invalid && !loginForm.email.$pristine">* Emailfield must be an email address</p>
+        <p ng-show="loginForm.email.$error.minlength">* Email must be longer than 5 characters</p>
+        <p ng-show="loginForm.password.$error.required">* Password is required</p>
+        <p ng-show="loginForm.password.$error.minlength">* Password must be longer than 3 characters</p>
       </div>
-      <radcup-button type="submit" ng-disabled="registerForm.$invalid">LET'S PLAY!</radcup-button>
+      <radcup-button type="submit" ng-disabled="loginForm.$invalid">LET'S PLAY!</radcup-button>
       <p class="error" ng-model="user.error" type=text> {{login.error}}</p>
     </form>
   </ion-content>
