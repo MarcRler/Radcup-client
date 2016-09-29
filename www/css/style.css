@@ -394,6 +394,11 @@ text-align: center !important;
     border-radius: 7px;
 }
 
+.list .item.item-accordion {
+  line-height: 38px;
+  padding-top: 0;
+  padding-bottom: 0;
+}
 
 .list .item.item-accordion.ng-hide {
   line-height: 0px;

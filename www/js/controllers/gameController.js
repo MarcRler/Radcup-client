@@ -116,7 +116,7 @@ angular.module('radcup').controller('gameController', function ($scope, $statePa
   $scope.showConfirm = function() {
   var confirmPopup = $ionicPopup.confirm({
     title: 'Are you sure?',
-    // template: 'Zur Zeit ist das nachträgliche wechseln nichtmehr möglich'
+    //template: 'Zur Zeit ist das nachträgliche wechseln nichtmehr möglich'
     okType: 'button-assertive',
   });
 
