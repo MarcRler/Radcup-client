@@ -1,27 +1,8 @@
 <ion-view view-title="STATS" ng-controller="statisticsController">
-     <ion-content>
-        <!-- <br/>
-        <div class="card">
-            <div class="item item-text-wrap">
-                Won: {{won}}
-            </div>
-        </div>
-        <div class="card">
-            <div class="item item-text-wrap">
-                Lost: {{lost}}
-            </div>
-        </div>
-        <div class="card">
-            <div class="item item-text-wrap">
-                Draw: {{draw}}
-            </div>
-        </div> -->
-<nvd3 options="options" data="data"></nvd3>
-    </ion-content>
-
-
-
-
-
-
+  <ion-content>
+    <div id="spinner" data-tap-disabled="true" ng-hide="hide">
+      <ion-spinner icon="spiral" class="loading"></ion-spinner>
+    </div>
+    <nvd3 options="options" data="data"></nvd3>
+  </ion-content>
 </ion-view>

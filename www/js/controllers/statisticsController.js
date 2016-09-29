@@ -1,4 +1,4 @@
-angular.module('radcup').controller('statisticsController', function($scope,gamesService) {
+angular.module('radcup').controller('statisticsController', function($scope, gamesService) {
 //http://krispo.github.io/angular-nvd3/#/quickstart
   $scope.options = {
               chart: {
@@ -21,7 +21,6 @@ angular.module('radcup').controller('statisticsController', function($scope,game
                   }
               }
           };
-
           $scope.data = [
               {
                   key: "Won",
@@ -37,9 +36,9 @@ angular.module('radcup').controller('statisticsController', function($scope,game
               }
           ];
 
-  var statistic = gamesService.statistics().get();
+    var statistic = gamesService.statistics().get();
 
-  statistic.$promise.then(function(data) {
+    statistic.$promise.then(function(data) {
 
     $scope.won = data.won;
     $scope.lost = data.lost;
@@ -59,8 +58,12 @@ angular.module('radcup').controller('statisticsController', function($scope,game
         }
     ];
 
-  });
+        $scope.hide = true;
 
+        $scope.won = data.won;
+        $scope.lost = data.lost;
+        $scope.draw = data.draw;
 
+    });
 
-  });
+});

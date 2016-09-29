@@ -12,8 +12,7 @@ angular.module('radcup').controller('myGamesController', function($scope, $http,
 
         gamesList.$promise.then(function(data) {
 
-          console.log(gamesList);
-
+            $scope.hide = true;
             $scope.groups = [];
             for (var i = 0; i < 3; i++) {
                 $scope.groups[i] = {

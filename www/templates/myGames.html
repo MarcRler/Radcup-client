@@ -1,6 +1,9 @@
 <ion-view view-title="MY GAMES" ng-controller="myGamesController">
     <ion-content ng-controller="gamesController">
         <ion-list>
+          <div id="spinner" data-tap-disabled="true" ng-hide="hide">
+              <ion-spinner icon="spiral" class="loading"></ion-spinner>
+          </div>
             <div ng-repeat="group in groups" style="margin-top:30px;">
                 <ion-item class="item-stable" ng-click="toggleGroup(group)" ng-class="{active: isGroupShown(group)}">
                     <i class="icon" ng-class="isGroupShown(group) ? 'ion-minus' : 'ion-plus'"></i> &nbsp; {{group.name}} Games
