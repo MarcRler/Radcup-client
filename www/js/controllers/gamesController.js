@@ -2,7 +2,14 @@ angular.module('radcup').controller('gamesController', function($scope, gamesSer
   /* gamesController dient als Bindeglied zwischen der main-games view und
   der gamesService.joinableGames function. */
   $scope.$on('$ionicView.enter', function() {
-    $scope.games = gamesService.joinableGames().query();
+
+    var gamesList = gamesService.joinableGames().query();
+
+    gamesList.$promise.then(function(data) {
+
+      $scope.hide = true;
+      $scope.games = gamesList;
+    });
   });
 
   $scope.getIcons = function (username, position) {

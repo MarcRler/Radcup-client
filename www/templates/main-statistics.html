@@ -1,7 +1,10 @@
 <ion-view view-title="STATS" ng-controller="statisticsController">
     <ion-content>
+      <div id="spinner" data-tap-disabled="true" ng-hide="hide">
+          <ion-spinner icon="spiral" class="loading"></ion-spinner>
+      </div>
         <br/>
-        <div class="card">
+        <div class="card" ng-hide="!hide">
             <div class="item item-text-wrap">
                 Won: {{won}}
             </div>
