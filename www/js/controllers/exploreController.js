@@ -3,7 +3,13 @@ angular.module('radcup').controller('exploreController', function($scope, $state
   der gamesService.allGames function. Ruft alle Spiele ab um diese darzustellen
   */
   $scope.$on('$ionicView.enter', function() {
-    $scope.games = gamesService.allGames().query();
+    var gamesList = gamesService.allGames().query();
+
+    gamesList.$promise.then(function(data) {
+
+      $scope.hide = true;
+      $scope.games = gamesList;
+    });
   });
 
 });
