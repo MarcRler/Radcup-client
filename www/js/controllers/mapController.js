@@ -101,7 +101,7 @@ angular.module('radcup').controller('mapController', function($scope, locationSe
     showError = function() {
         var alertPopup = $ionicPopup.alert({
             title: 'Location Error',
-            template: 'Either your location settings are not activated or your smartphone is not able to get a current position. Turn on your location settings or try going outside.',
+            template: 'Either your location settings are not activated, the app has no location permission or your smartphone is not able to get a current position. Turn on your location settings, turn on the location permission in the apps permission settings or try going outside.',
             okType: 'button-assertive'
         });
 
