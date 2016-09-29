@@ -20,5 +20,5 @@ angular.module('radcup').controller('gamesController', function($scope, gamesSer
     };
   };
 
-  
+
 });

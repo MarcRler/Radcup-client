@@ -4,9 +4,10 @@ angular.module('radcup').controller('newGameController', function($scope, $http,
   $scope.$on('$ionicView.beforeEnter', function (event, viewData) {
     viewData.enableBack = true;
     $scope.date = new Date();
+    $scope.game = {};
   });
 
-  $scope.game = {};
+//$scope.game = {};
 //initializeGame function legt neues Spiel mit leeren lat/Lat und Beschreibung an
   $scope.initializeGame = function() {
     var newGame = {
