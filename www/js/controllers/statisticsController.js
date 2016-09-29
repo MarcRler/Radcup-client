@@ -1,16 +1,11 @@
 angular.module('radcup').controller('statisticsController', function($scope, gamesService) {
 //http://krispo.github.io/angular-nvd3/#/quickstart
-var colors = ["#297239", "#EF473A", "#FF6F0E"];
-
   $scope.options = {
               chart: {
                   type: 'pieChart',
                   height: 500,
                   x: function(d){return d.key;},
                   y: function(d){return d.y;},
-                  color: function(d,i){
-                 return (d.data && d.data.color) || colors[i % colors.length]
-               },
                   showLabels: true,
                   duration: 500,
                   labelThreshold: 0.01,
@@ -26,35 +21,38 @@ var colors = ["#297239", "#EF473A", "#FF6F0E"];
                   }
               }
           };
+
+          var statistic = gamesService.statistics().get();
+
+          statistic.$promise.then(function(data) {
+          $scope.hide = true;
+
           $scope.data = [
               {
-                  key: "Won",
-                  y: 5,
+                  key: "Won: "+0,
+                  y: 0,
                   color:"#297239"
-
               },
               {
-                  key: "Lost",
-                  y: 2,
+                  key: "Lost:"+0,
+                  y: 0,
                   color:"#EF473A"
-
               },
               {
-                  key: "Draw",
-                  y: 9,
+                  key: "Draw: "+0,
+                  y: 0,
                   color:"#FF6F0E"
-
               }
           ];
+
+          });
+
 
     var statistic = gamesService.statistics().get();
 
     statistic.$promise.then(function(data) {
     $scope.hide = true;
 
-    $scope.won = data.won;
-    $scope.lost = data.lost;
-    $scope.draw = data.draw;
     $scope.data = [
         {
             key: "Won: "+data.won,
@@ -72,11 +70,6 @@ var colors = ["#297239", "#EF473A", "#FF6F0E"];
             color:"#FF6F0E"
         }
     ];
-
-
-        $scope.won = data.won;
-        $scope.lost = data.lost;
-        $scope.draw = data.draw;
 
     });
 
