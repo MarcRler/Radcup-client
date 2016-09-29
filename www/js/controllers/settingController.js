@@ -4,8 +4,10 @@ der userService.update function. */
 $scope.oldUsername=window.localStorage['username'];
 $scope.oldEmail=window.localStorage['email'];
 $scope.oldPassword=window.localStorage['password'];
-  $scope.settings = {};
+$scope.settings = {};
+
   $scope.updateSettingForm= function() {
+
 
     var newUpdate = {
       email: $scope.settings.email,
