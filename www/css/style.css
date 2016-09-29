@@ -39,20 +39,36 @@ body{
 }
 
 /* tabbar */
-.ion-ios-game-controller-b:before{
+.ion-beer:before{
   content: url('../img/tabbar-icons/all-games.svg') !important;
 }
 
-.ion-beer:before{
+.ion-beer_off:before{
+  content: url('../img/tabbar-icons/all-games_off.svg') !important;
+}
+
+.ion-branch:before{
   content: url('../img/tabbar-icons/my-games.svg') !important;
 }
 
-.ion-star:before{
+.ion-branch_off:before{
+  content: url('../img/tabbar-icons/my-games_off.svg') !important;
+}
+
+.ion-rules:before{
   content: url('../img/tabbar-icons/rules.svg') !important;
+}
+
+.ion-rules_off:before{
+  content: url('../img/tabbar-icons/rules_off.svg') !important;
 }
 
 .ion-settings:before{
   content: url('../img/tabbar-icons/settings.svg') !important;
+}
+
+.ion-settings_off:before{
+  content: url('../img/tabbar-icons/settings_off.svg') !important;
 }
 
 /* Walkthrough */
