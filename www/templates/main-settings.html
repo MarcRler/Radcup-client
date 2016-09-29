@@ -6,15 +6,15 @@
       <div class="list" ng-init="init()">
         <label class="item item-input item-stacked-label">
           <span class="input-label">NEW EMAIL</span>
-          <input type="text"  ng-model="settings.email" placeholder="old EMAIL was {{oldEmail}}, please type in a new one" ng-minlength="5" >
+          <input type="text"  ng-model="settings.email"  ng-minlength="5" >
         </label>
         <label class="item item-input item-stacked-label">
           <span class="input-label">NEW PASSWORD</span>
-          <input type="password"  ng-model="settings.password" placeholder="old Password, please type in a new one or the same old password" ng-minlength="3" >
+          <input type="password"  ng-model="settings.password" ng-minlength="3" >
         </label>
 </div>
 <div class="col-50 col-offset-25">
-        <a ng-disabled="settings.email==='' && settings.password===''" class="button button-block button-assertive" ng-click="updateSettingForm()" >UPDATE</a>
+        <a ng-disabled="settings.email==='' && settings.password==='' ||settings.password===undefined && settings.email===undefined" class="button button-block button-assertive" ng-click="updateSettingForm()" >UPDATE</a>
 </div>
 
 
