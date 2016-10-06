@@ -1,9 +1,11 @@
 angular.module('radcup').controller('statisticsController', function($scope, gamesService) {
 //http://krispo.github.io/angular-nvd3/#/quickstart
+$scope.options={};
+$scope.data={};
   $scope.options = {
               chart: {
                   type: 'pieChart',
-                  height: 500,
+                  height: 400,
                   x: function(d){return d.key;},
                   y: function(d){return d.y;},
                   showLabels: true,
@@ -25,7 +27,7 @@ angular.module('radcup').controller('statisticsController', function($scope, gam
           var statistic = gamesService.statistics().get();
 
           statistic.$promise.then(function(data) {
-          $scope.hide = true;
+         $scope.hide = true;
 
           $scope.data = [
               {
@@ -41,7 +43,7 @@ angular.module('radcup').controller('statisticsController', function($scope, gam
               {
                   key: "Draw: "+0,
                   y: 0,
-                  color:"#FF6F0E"
+                  color:"#FF8F0E"
               }
           ];
 
@@ -51,7 +53,7 @@ angular.module('radcup').controller('statisticsController', function($scope, gam
     var statistic = gamesService.statistics().get();
 
     statistic.$promise.then(function(data) {
-    $scope.hide = true;
+   $scope.hide = true;
 
     $scope.data = [
         {
