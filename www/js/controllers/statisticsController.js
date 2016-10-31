@@ -1,7 +1,7 @@
 angular.module('radcup').controller('statisticsController', function($scope, gamesService) {
 //http://krispo.github.io/angular-nvd3/#/quickstart
 $scope.options={};
-$scope.data={};
+$scope.data2={};
   $scope.options = {
               chart: {
                   type: 'pieChart',
@@ -29,7 +29,7 @@ $scope.data={};
           statistic.$promise.then(function(data) {
          $scope.hide = true;
 
-          $scope.data = [
+          $scope.data2 = [
               {
                   key: "Won: "+0,
                   y: 0,
@@ -55,7 +55,7 @@ $scope.data={};
     statistic.$promise.then(function(data) {
    $scope.hide = true;
 
-    $scope.data = [
+    $scope.data2 = [
         {
             key: "Won: "+data.won,
             y: data.won,
